@@ -37,10 +37,10 @@ $text-background-color: rgba(#000, .05);
 
 // header and footer colors
 $header-text-color: $text-color-3;
-$header-background: linear-gradient(to right, #74ebd5, #acb6e5);
+$header-background: linear-gradient(30deg, #74ebd5, #acb6e5);
 
 $footer-text-color: $text-color-3;
-$footer-background: linear-gradient(to right, #74ebd5, #acb6e5);
+$footer-background: linear-gradient(30deg, #74ebd5, #acb6e5);
 
 // border and shadow colors
 $border-color:     mix(#000, $background-color, 20%);
