@@ -7,6 +7,8 @@ aside:
 tags: nodejs
 ---
 
+使ってみたソースコードは[GitHub](https://github.com/s1r-J/nodejs-module-labo/tree/main/randomstring)にあります。
+
 ## randomstringモジュールの使い方
 
 [klughammer/node-randomstring: A node.js module for generating random strings](https://github.com/klughammer/node-randomstring)
