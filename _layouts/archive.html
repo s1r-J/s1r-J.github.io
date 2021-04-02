@@ -30,8 +30,11 @@ titles:
 <div class="layout--archive js-all">
   {%- include tags.html -%}
   <div class="js-result layout--archive__result d-none">
-    {% assign my_list = site.posts | concat: site.nodejs | concat: site.oidc_oauth %}
-    {%- include article-list.html articles=my_list type='brief' show_info=true reverse=true group_by='year' -%}
+    {%- assign page_list = "" | split: ',' -%}
+    {%- for coll in site.collections -%}
+      {%- assign page_list = page_list | concat: coll.docs -%}
+    {%- endfor -%}
+    {%- include article-list.html articles=page_list type='brief' show_info=true reverse=true group_by='year' -%}
   </div>
 </div>
 
