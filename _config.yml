@@ -261,6 +261,8 @@ collections:
     output: true
   java:
     output: true
+  misc:
+    output: true
 
 
 ## => Plugins
