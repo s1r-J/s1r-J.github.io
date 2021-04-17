@@ -49,6 +49,6 @@ Mockitoについては正直雰囲気でした使っていないので、基本�
 特定の場面での使い方
 
 - [Mockitoがstaticメソッドのモックに対応したので試してみた - kamoqq.info](https://kamoqq.info/post/mockito-static-method-mock/)
-- [Mockitoで複数回のメソッド呼び出しをモックする | DevelopersIO](https://dev.classmethod.jp/articles/mockito-multiple-mock-call/)
+- [Mockitoで複数回のメソッド呼び出しをモックする \| DevelopersIO](https://dev.classmethod.jp/articles/mockito-multiple-mock-call/)
 - [ArgumentMatcherとは - Qiita](https://qiita.com/takenakat/items/61d38d89c912de5d29b1)
-- [Mock Java Constructors and Their Object Creation With Mockito | rieckpil](https://rieckpil.de/mock-java-constructors-and-their-object-creation-with-mockito/)
+- [Mock Java Constructors and Their Object Creation With Mockito \| rieckpil](https://rieckpil.de/mock-java-constructors-and-their-object-creation-with-mockito/)
