@@ -24,6 +24,12 @@ Jenkinsで実行する内容（実行するコマンド等）をファイルに�
 - [Jenkinsfileの書き方 - Qiita](https://qiita.com/lufia/items/18cdb01f86a6d5040c60)
 - [Jenkinsfileの書き方 - Plan 9とGo言語のブログ](https://blog.lufia.org/entry/2018/01/19/000000)
 - [Declarative PipelineでJenkinsfileを書いてみた(Checkstyle,Findbugs,PMD,CPDとか) - Qiita](https://qiita.com/Takumon/items/e266146c225d07b82c13)
+- [JenkinsFile個人的チートシート - Qiita](https://qiita.com/yyYank/items/e591750c67f3a0bef221)
+
+ベストプラクティスについて
+
+- [Pipeline Best Proctices](https://www.jenkins.io/doc/book/pipeline/pipeline-best-practices/)
+- [JenkinsのPipeline Best Practicesを邦訳したので後で読み直す - s1r-Jの技術ブログ](https://s1r-j.hatenablog.com/entry/2021/04/22/003636)：上の邦訳
 
 Javaプロジェクトでの注意点。
 
