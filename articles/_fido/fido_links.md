@@ -1,7 +1,7 @@
 ---
 layout: article
 title: FIDOについて理解するためのリンク集
-permalink: /docs/oidc_oauth/fido_links
+permalink: /docs/fido/fido_links
 date: 2021-08-30
 aside:
   toc: true
