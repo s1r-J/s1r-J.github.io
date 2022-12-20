@@ -1,7 +1,7 @@
 ---
 layout: article
 title: SAMLを勉強するためのリンク集
-permalink: /docs/fido/saml_benkyou
+permalink: /docs/oidc_oauth/saml_benkyou
 date: 2022-12-20
 modify_date: 2022-12-20
 aside:
