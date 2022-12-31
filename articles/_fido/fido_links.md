@@ -3,6 +3,7 @@ layout: article
 title: FIDOについて理解するためのリンク集
 permalink: /docs/fido/fido_links
 date: 2021-08-30
+modify_date: 2022-12-31
 aside:
   toc: true
 tags: FIDO FIDO2 WebAuthn
@@ -22,6 +23,8 @@ W3CやFIDO Allianceの情報
 - [FIDO Alliance Metadata Service - FIDO Alliance](https://fidoalliance.org/metadata/)
 	- MDSの公式サイト
 	- 仕様へのリンク以外に、実際の認証器データおよびルート証明書が取得できる
+- [iPhoneでパスキーを使ってサインインする - Apple サポート (日本)](https://support.apple.com/ja-jp/guide/iphone/iphf538ea8d0/ios)
+    - iPhoneでのPasskeyの動作、スクショ付きでわかりやすい（iPhone持ってないから動作をよく知らないので）。
 
 ## 解説
 
@@ -46,6 +49,10 @@ W3CやFIDO Allianceの情報
     - [Ackermann Yuriy – Medium](https://herrjemand.medium.com/)
 - [Web Authentication API の裏側と、なぜそうなっているのかを図解した - Qiita](https://qiita.com/kyrieleison/items/3dbb8ece94572dc3e962)
     - なんとなくわかるけれど、いきなり読んでもわからないと思う
+- [Appleの発表したPasskeys in iCloud KeychainはWebAuthnをどう変えるのか - r-weblife](https://ritou.hatenablog.com/entry/2021/06/15/060000)
+- [まだパスワードで認証してるの？Passkeysを使ってパスワードを駆逐してやる！ - Qiita](https://qiita.com/mogmet/items/1c9720a311686ff02de3)
+- [パスキー導入時のRelying Party側の考慮事項的なもの - Qiita](https://qiita.com/kokukuma/items/7e4856b616506d1e3618)
+- [ヤフーにおける WebAuthn と Passkey の UX の紹介と考察 #idcon #fidcon \| ドクセル](https://www.docswell.com/s/ydnjp/KWDLDZ-2022-10-14-141235#p1)
 
 ## 実装例
 
