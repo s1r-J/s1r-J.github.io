@@ -23,6 +23,8 @@ W3CやFIDO Allianceの情報
 - [FIDO Alliance Metadata Service - FIDO Alliance](https://fidoalliance.org/metadata/)
 	- MDSの公式サイト
 	- 仕様へのリンク以外に、実際の認証器データおよびルート証明書が取得できる
+- [FIDO Metadata Service](https://fidoalliance.org/specs/mds/fido-metadata-service-v3.0-ps-20210518.html)
+    - FIDO MDSの仕様
 - [iPhoneでパスキーを使ってサインインする - Apple サポート (日本)](https://support.apple.com/ja-jp/guide/iphone/iphf538ea8d0/ios)
     - iPhoneでのPasskeyの動作、スクショ付きでわかりやすい（iPhone持ってないから動作をよく知らないので）。
 
