@@ -2,7 +2,7 @@
 layout: article
 title: Amazon Verified Permissionsのリンク集
 permalink: /docs/aws/amazonverifiedpermissions_links
-date: 2023-97-15
+date: 2023-07-15
 aside:
   toc: true
 tags: ["AWS", "Amazon Verified Permissions", "Cedar", "認可"]
