@@ -36,6 +36,7 @@ OAuth2.0とOpenID Connectについて勉強するときに読んだ、読んで�
 
 ## OpenID Connect
 
+- [OAuth および OpenID Connect — Authlete ナレッジベース](https://kb.authlete.com/ja/s/oauth-and-openid-connect)
 - [なぜOpenID Connectが必要となったのか、その歴史的背景](https://www.slideshare.net/tkudo/openid-connect-devlove)
 	- OpenID ConnectおよびOAuth、その前に活躍していたSAMLなどの概念をざっくり掴むのに良い。
 	- ただし、スライド1枚1枚を詳しく見ていくと初学者は戸惑いそう（戸惑った）。
