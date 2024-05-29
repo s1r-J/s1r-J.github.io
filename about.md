@@ -43,7 +43,6 @@ key: page-about
 - [Zenn](https://zenn.dev/s1r_j)
 - [Qiita](https://qiita.com/s1r)
 - [はてなブログ](https://s1r-j.hatenablog.com/)
-- [Crieit](https://crieit.net/users/s1r-J)
 
 ## プライバシーポリシー
 
