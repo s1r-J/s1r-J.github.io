@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 「クラッシュ・オンリー」設計のメモ
-permalink: /docs/design/twelve_factor_app
+permalink: /docs/design/crash_only_software
 date: 2024-04-09
 aside:
   toc: true
