@@ -8,6 +8,13 @@ aside:
 tags: ["IDPro", "IDPro BoK"]
 ---
 
+IDPro Body of Knowledgeの翻訳メモです。
+
+元記事：https://bok.idpro.org/article/id/41/
+
+[IDPro Body of Knowledgeの翻訳メモのトップページ](/docs/oidc_oauth/idpro_bok)
+
+@row
 Heather Flanagan, editor - ©2023 IDPro
 
 _**Editor’s Note:** This is a consolidated list of the terminology highlighted in each of the articles published in the Body of Knowledge (BoK). It is not, by any means, a definitive or even broadly supported set of definitions; the context an individual reader brings to the table will influence how accurate the terminology for their use case. We offer the consolidated list here as a touchpoint for discussion. Article authors are encouraged to review and use existing definitions before offering new ones for terms already described in the BoK._

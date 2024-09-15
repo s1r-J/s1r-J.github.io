@@ -8,6 +8,12 @@ aside:
 tags: ["IDPro", "IDPro BoK", "認証", "認可", "フェデレーション"]
 ---
 
+IDPro Body of Knowledgeの翻訳メモです。
+
+元記事：https://bok.idpro.org/article/id/78/
+
+[IDPro Body of Knowledgeの翻訳メモのトップページ](/docs/oidc_oauth/idpro_bok)
+
 @row
 ## Abstract
 

@@ -9,7 +9,7 @@ date: 2024-09-09
 
 ## IDPro® Body of Knowledge翻訳
 
-[IDPro® Body of Knowledge](https://idpro.org/body-of-knowledge/)をちまちま翻訳しているメモです（未完）。
+[IDPro® Body of Knowledge](https://idpro.org/body-of-knowledge/)をちまちま翻訳しているメモです（未完）。  
 やる気が続く限り、翻訳していきます。
 
 それぞれのメモでは左に元記事の原文、右に邦訳を記載しています。
