@@ -379,7 +379,7 @@ But even when we have worked these entitlements down to a level where they are m
 
 Role management can be useful for saying, “These types of job responsibilities need this kind of access, so let’s call that thing a Role.” Additionally, sometimes you have this thing called a technical role, which is saying, “Here are the low-level bits you’re going to need to do your job,” and it becomes a handy bundle to assign to people. Imagine roles as a grouping to which you might provide access in a common way. You should only create roles if you are going to provision or control access to a group differently. At the highest level, you could only have a handful of roles, and you should review them regularly as your organization evolves.
 
-@row
+@column
 ##### ロール管理
 
 エンタイトルメントを減らしていき、専門家でなくとも管理可能なレベルまで落とし込んだとしても、それらを効果的に利用することは非常に困難です。すべてではありませんが、多くの組織でのこの課題に対する答えは、ロール管理と呼ばれるものを実施することです。RBAC（Role-Based Access Control）と聞いたことがあるかもしれません。その本質は次の通りです：ある組織では、職務は非常に規則的です。規則的な職務は、最も一般的に階層型の組織で見られます。一方、マトリックス型の組織では、この仕組みは非常にうまく機能しません。それは、たとえば上位3つの職務責任が常に変化しているために、職務を特定が難しいからです。
