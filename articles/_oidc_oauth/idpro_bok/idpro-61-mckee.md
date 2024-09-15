@@ -10,7 +10,7 @@ tags: ["IDPro", "IDPro BoK"]
 
 IDPro Body of Knowledgeの翻訳メモです。
 
-元記事：https://bok.idpro.org/article/id/61/
+元記事：[https://bok.idpro.org/article/id/61/](https://bok.idpro.org/article/id/61/)
 
 [IDPro Body of Knowledgeの翻訳メモのトップページ](/docs/oidc_oauth/idpro_bok)
 
