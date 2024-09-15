@@ -192,7 +192,7 @@ Done well, we build trust in the small, everyday tasks that, in turn, promote eq
     
 [^2]:  K. Waddell, “The Atlantic,” 2 December 2016. \[Online\]. Available: https://www.theatlantic.com/technology/archive/2016/12/how-algorithms-can-bring-down-minorities-credit-scores/509333/. \[Accessed 12 July 2019\].
     
-[^3]:  J. Angwin, J. Larson, S. Mattu and L. Kirchner, “Machine Bias,” 23 May 2016. \[Online\]. Available: \[1\] ProPublica, “Machine Bias,” ProPublica, 23-May-2016. \[Online\]. Available: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing. \[Accessed: 01-Aug-2019\]. ‌. \[Accessed 12 7 2019\].
+[^3]:  J. Angwin, J. Larson, S. Mattu and L. Kirchner, “Machine Bias,” 23 May 2016. \[Online\]. Available:  [^1] ProPublica, “Machine Bias,” ProPublica, 23-May-2016. \[Online\]. Available: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing. \[Accessed: 01-Aug-2019\]. ‌. \[Accessed 12 7 2019\].
     
 [^4]:  See 2 and 3 above.
     
