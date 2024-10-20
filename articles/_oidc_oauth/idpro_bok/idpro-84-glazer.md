@@ -5,7 +5,7 @@ permalink: /docs/oidc_oauth/idpro_bok/84
 date: 2024-09-09
 aside:
   toc: true
-tags: ["IDPro", "IDPro BoK"]
+tags: ["IDPro", "IDPro BoK", "ユーザープロビジョニング", "エンタープライズ"]
 ---
 
 IDPro Body of Knowledgeの翻訳メモです。
@@ -21,7 +21,14 @@ User provisioning is the means by which user accounts are created and maintained
 
 Keywords: user provisioning, enterprise, digital identity
 
+@column
+## 概要
 
+ユーザー・プロビジョニングとは、システム（例えば、データベース、SaaSアプリ、オペレーティング・システムなど）においてユーザーアカウントを作成し、メンテナンスする手段です。ユーザー・プロビジョニング・システムがユーザー・アカウントをメンテナンスしていると表現するとき、ユーザーアカウントの属性の変更、ユーザーアカウントに関連するエンタイトルメントまたは特権の変更、ユーザーアカウントのロックとロック解除、さらにはユーザーアカウントの削除まで、あらゆることを意味します。 ユーザー・プロビジョニングは、主に管理時間の問題です：つまり、ユーザーアカウントはリソース使用時のユーザのアクションとは対照的に、管理者のアクションに基づいて作成（または変更）されます。この記事では、ユーザー・プロビジョニング・システムの用途とコンポーネントを検討し、主にユーザーアカウントが中央リポジトリで管理される状況、一般に企業や従業員の状況に焦点を当てます。
+
+Keywords: ユーザー・プロビジョニング, エンタープライズ, デジタル・アイデンティティ
+
+@row
 By Ian Glazer, Lori Robinson, and Mat Hamlin
 
 © 2022 IDPro, Ian Glazer, Lori Robinson, Mat Hamlin
@@ -30,6 +37,11 @@ By Ian Glazer, Lori Robinson, and Mat Hamlin
 ## Introduction
 
 Creating and managing user accounts is the bedrock of any IAM system. The process is generally referred to as user provisioning and is used to establish the entitlements a user is given to access restricted resources (applications, documents or databases) maintained by the organization. User provisioning processes not only create user accounts and assign entitlements but also maintains those user account entitlement through the detection of meaningful lifecycle events such as changes to job responsibility and the application of policies to ensure. User provisioning is often used to ensure the right people have access to the right systems in a timely fashion and with entitlement appropriate for their responsibilities.
+
+@column
+## 導入
+
+ユーザーアカウントの作成と管理は、IAMシステムの根幹をなすものです。このプロセスは一般にユーザー・プロビジョニングと呼ばれ、組織がメンテナンスする制限付きリソース（アプリケーション、ドキュメントやデータベース）にアクセスするためにユーザに与えられるエンタイトルメントを確立するために使用されます。ユーザー・プロビジョニング・プロセスは、ユーザーアカウントを作成してエンタイトルメントを割り当てるだけでなく、職務の変更など意味のあるライフサイクルイベントの検出やポリシーの適用を通じて、それらのユーザーアカウントのエンタイトルメントをメンテナンスします。ユーザー・プロビジョニングは、多くの場合、適切な人が適切なシステムにタイムリーにアクセスし、その責任に適したエンタイトルメントを持つことを保証するために使用されます。
 
 @row
 ### Terminology
@@ -45,6 +57,22 @@ Creating and managing user accounts is the bedrock of any IAM system. The proces
 *   **Reconciliation:** The process of identifying and processing changes to users and user access made directly on target systems.
     
 *   **User provisioning** : the means by which user accounts are created, maintained, and deactivated/deleted in a system according to defined policies.
+    
+
+@column
+### 用語解説
+
+*   **権威あるソース** ：アイデンティティ・データのための記録システム（SOR）；組織は、その環境に複数の権威あるデータソースを持つことができます。
+    
+*   **エンタイトルメント・カタログ** ：エンタイトルメントとそれに関連したメタデータのデータベース。カタログにはビジネスシステム、アプリケーション、およびプラットフォームから取得したエンタイトルメント・データのインデックスと、エンタイトルメントまたはその使用に関する技術的およびビジネス的な説明が含まれています。
+    
+*   **アイデンティティ・ライフサイクル管理** ：権限のある記録システムでの変更を検出し、ポリシーに基づいてアイデンティティ・レコードを更新するプロセス。
+    
+*   **アイデンティティ・リポジトリ** ：アイデンティティ・リポジトリは、外部システムおよびサービス（認証サービスや認可サービスなど）から参照できるディレクトリまたはデータベースです。
+    
+*   **調整** ：ターゲットシステムで直接おこなわれたユーザーおよびユーザーアクセスへの変更を特定して処理するプロセス。
+    
+*   **ユーザー・プロビジョニング** ：定義されたポリシーに従ってシステム内でユーザーアカウントを作成、メンテナンス、非アクティブ化/削除する手段。
     
 
 @row
@@ -66,6 +94,25 @@ Functionality supported by user-provisioning technologies include:
 
 A note about governance: User-provisioning systems are often packaged with identity governance capabilities such as access review and certification, risk analysis, and identity analytics. The combined user provisioning and identity governance solutions may be referred to as Identity Governance and Administration (IGA). This document focuses exclusively on user-provisioning functionality and does not include identity governance information. Similarly, password management, which may be packaged with provisioning solutions, is not covered in this document.
 
+@column
+### ユーザー・プロビジョニングとは何か？
+
+ユーザー・プロビジョニングとは、ユーザがアクセスする必要のあるリソースに対してユーザのエンタイトルメントを設定することです。ユーザー・プロビジョニング技術は、ヘルスケア、教育、金融サービス、政府、小売、製造、テクノロジーなどさまざまな業界で展開されています。
+
+ユーザー・プロビジョニング技術でサポートされる機能は以下の通りです：
+
+**アイデンティティ・ライフサイクル管理**： アイデンティティとその関連属性は、環境内で実施される認証と認可の決定の基礎です。したがって、アイデンティティの記録をメンテナンスすることが不可欠です。プロビジョニングシステムは、（人事データベース/リポジトリのような）権威ある記録システムの変更を検出し、それによって記録を更新します。
+
+**ユーザーアカウント・プロビジョニング**： その名が示すように、ユーザー・プロビジョニングシステムの主な機能は、ユーザーアカウントのプロビジョニング（およびデプロビジョニング）です。ユーザー・プロビジョニング技術は、定義されたポリシーに従って、ターゲットシステム上のユーザーアカウントの作成、メンテナンス、非活性化/削除を自動化しています。
+
+**セルフサービスと委譲された権限**： ユーザー・プロビジョニングシステムは、ユーザーがシステムへのアクセス権を要求し、パスワードを管理し、データを更新することができるインターフェースを提供します。権限委譲された管理者は、ユーザーのオンボーディングとオフボーディング、パスワードの変更、プロファイルの更新、エンタイトルメントの割り当てなど、同様のタスクを他の人に代わって実行することができます。
+
+**ワークフロー**： プロビジョニングシステムは、プロビジョニングプロセスと承認ワークフローの自動化を可能にするワークフローツールを採用しています。自動化された承認ワークフローを使用することで、ビジネス・ステークホルダーは、提案された変更をターゲットシステムに適用する前に検証し、承認することができます。アクセス権の付与に関する多くの決定はポリシーによって自動化されていますが、その他の決定には人間の介入が必要な場合があります。
+
+**監査と報告**： プロビジョニングシステムは、すべてのアイデンティティ・ライフサイクル管理、アクセスポリシーおよびユーザー・プロビジョニング処理を記録し、記録されたデータを抽出するためのレポート機能を提供します。
+
+ガバナンスに関する注意点： 多くの場合、ユーザー・プロビジョニングシステムはアクセスレビューや認定、リスク分析、アイデンティティ分析などのアイデンティティ・ガバナンス機能とともにパッケージ化されています。ユーザー・プロビジョニングとアイデンティティ・ガバナンスを組み合わせたソリューションは、アイデンティティ・ガバナンスと管理（IGA）と呼ばれることがあります。本稿では、ユーザー・プロビジョニング機能のみに焦点を当て、アイデンティティ・ガバナンスに関する情報は含んでいません。同様に、プロビジョニング・ソリューションとパッケージ化される可能性のあるパスワード管理も扱いません。
+
 @row
 ### Business Drivers for Automated User Provisioning
 
@@ -78,15 +125,34 @@ Three primary business drivers justify the deployment of automated user-provisio
 *   **Compliance** : Various laws and regulations require organizations to demonstrate control over access to critical systems, resources, and data. User-provisioning systems enforce policy-based access controls and allow organizations to demonstrate the efficacy of these controls with reporting and attestation capabilities.
     
 
+@column
+### 自動化されたユーザー・プロビジョニングに向けたビジネス推進要因
+
+自動化されたユーザー・プロビジョニングシステムの展開を正当化する3つの主たるビジネス推進要因は以下のとおりです：
+
+*   **運用効率**： 中規模から大規模の組織では、ユーザーアカウントの手動作成とメンテナンスに関する管理オーバーヘッドが非常に大きくなります。自動化されたプロセスがなければ、ユーザーが職務やその他のタスクを実行するために必要なリソースにアクセスできるようになるまでに数週間かかることもあります。 ユーザー・プロビジョニングシステムはユーザーアカウント管理プロセスを自動化することで、管理者のオーバーヘッドを削減し、生産性向上までの時間を短縮し、結果として業務効率を向上させます。
+    
+*   **セキュリティ**： ユーザーアカウントの手動プロビジョニングは、過剰権限のユーザーアカウントや孤児アカウント（アクティブでない従業員に割り当てられたアクティブなアカウント）などのセキュリティギャップにつながる可能性があります。自動化されたユーザーアカウント・プロビジョニングシステムは、ユーザーアカウントとエンタイトルメントがポリシーに従ってプロビジョニングされ、タイムリーにデプロビジョニングされることを保証することにより、セキュリティを向上させます。
+    
+*   **コンプライアンス**： 様々な法律や規制により、組織は重要なシステム、リソース、データへのアクセス制御を実証することが求められています。ユーザー・プロビジョニングシステムは、ポリシーベースのアクセス制御を実施し、レポートと認証機能により、これらの制御の有効性を証明することができます。
+    
+
 @row
 ## User Provisioning Logical Architecture
 
 User-provisioning systems employ policies, workflows, and connectors to synchronize identity data from an authoritative system to an identity store and to provision user accounts to target applications.
 
+@column
+## ユーザー・プロビジョニングの論理アーキテクチャ
+
+ユーザー・プロビジョニングシステムはポリシー、ワーウフローとコネクタを使用して、アイデンティティデータを権威あるシステムからアイデンティティ・ストアに動悸させ、ユーザーアカウントをターゲットアプリケーションにプロビジョニングします。
+
+@row
 ![](/assets/images/idpro_bok/UP-figure1.png)
 
 Figure 1 illustrates the standard architectural components of a user-provisioning ecosystem.
 
+@row
 **Authoritative source(s):** The system of record (SOR) for identity data. The authoritative system publishes changes to the provisioning system. There may be more than one authoritative system in the environment. For example, in workforce use cases, the Human Capital Management (HCM) / Human Resources (HR) system may be the SOR for employee data, but contractor data may be stored in a procurement system.
 
 **Target system(s):** Target systems subscribe to changes to identity records and are on the receiving end of the provisioning process. The provisioning system creates and manages user accounts and associated entitlements within the target system environment.
@@ -118,8 +184,52 @@ Figure 1 illustrates the standard architectural components of a user-provisionin
 
 Given their highly connected and interactive nature, user-provisioning systems must be open and extensible. The provisioning provider should provide open APIs, no or low code workflows, and generic connectors that allow for flexibility in the system.
 
+@column
+**権威あるソース**： アイデンティティ・データ用の記録システム（SOR）。権威あるシステムは、プロビジョニング・システムに変更を発行します。環境には1 つ以上の権威システムが存在するかもしれません。たとえば、従業員のユースケースでは、人的資本管理（HCM）/人事（HR）システムが従業員データのSORになる場合がありますが、契約者データは調達システムに格納される場合があります。
+
+**ターゲットシステム**： ターゲットシステムはアイデンティティ・レコードへの変更をサブスクライブし、プロビジョニングプロセスの受信側に存在します。プロビジョニングシステムは、ターゲットシステム環境内でユーザーアカウントと関連するエンタイトルメントを作成および管理します。
+
+**コネクター**： プロビジョニングシステムと権威があるターゲットシステムの間の統合レイヤー。コネクターにはさまざまな種類があります：独自仕様（アプリ固有のAPIと通信するアプリケーション固有のコネクター）、汎用（例えばLDAP、JDBC、区切りテキスト）、または標準ベース。標準ベースの接続の詳細については、標準のセクションを参照してください。
+
+**プロビジョニングサーバー**： データの同期、マッピングおよび変換を担当するミドルウェアレイヤー；ビジネスロジックとアクセスポリシーのアプリケーション；そして、プロビジョニングプロセスフローのオーケストレーション。プロビジョニングサーバーは、次の機能コンポーネントで構成されています：
+
+*   **アカウント相関ルール**： （ターゲットまたは権威あるシステム内の）異なるユーザーアカウントを単一のアイデンティティ・レコードと関連付けまたは照合し、単一の個人/エンティティの重複アイデンティティが作成されないようにします。
+    
+*   **データマッピングルール**： ソースコンテキストからターゲットコンテキストにデータをマッピングおよび変換します。
+    
+*   **アカウント作成ルール**： 命名規則、必須属性、パスワードポリシー、ロケーションポリシーなどのようにアイデンティティ・レコードの作成するための標準を確立します。
+    
+*   **アクセスポリシー**： ユーザーに割り当てる必要のあるアクセス権と資格を決定します。様々な種類のアクセスポリシーについては、ポリシーセクションを参照してください。
+    
+*   **ワークフローエンジン**： ビジネス処理ロジックに基づくプロビジョニングをオーケストレーションし、アクセス要求、承認およびレビューワークフローを有効にします。
+    
+*   **調整エンジン**： ターゲットシステムで直接作成された（標準のプロビジョニングプロセスを回避した）ユーザーアカウントを発見し、ユーザーアカウントがアクセスポリシーに準拠していることを確認し、ユーザーアカウントを個人のアイデンティティ・レコードと関連付けます。
+    
+
+**アイデンティティ・リポジトリ**： アイデンティティ・レコードはアイデンティティ・リポジトリに格納されます。アイデンティティ・リポジトリは、外部システムおよびサービス（認証または認可サービスのような）から参照できるディレクトリまたはデータベースです。アイデンティティ・レコードには、アイデンティティに紐づく属性およびアイデンティティに紐づく全てのユーザーアカウントのレコードを含みます。
+
+**エンタイトルメントカタログ**： エンタイトルメントとその関連メタデータのデータベース。カタログは、ビジネスシステム、アプリケーションおよびプラットフォームから取得したエンタイトルメントデータのインデックスを含みます。エンタイトルメントデータは、リスクスコアやアクセス要求、アクセスレビューおよび認定の際にユーザーに表示するエンタイトルメントのビジネスフレンドリーな説明のようなメタデータで強化することができます。
+
+**システム構成および監査ストア**： システム構成、アイデンティティ・マッピング、ポリシー、ロール定義、ワークフローデータなどの情報を保持するための専用リポジトリ。このリポジトリは、監査ログのストアとしても機能することがあります。
+
+**ユーザーインターフェース**： ユーザー・プロビジョニングシステムには、管理者用インタフェース、エンドユーザ用インタフェースおよび委譲管理者用インタフェースがあります。管理者用インターフェイスは、システムのセットアップと構成に利用されます。エンドユーザーおよび委譲管理者用インターフェイスは、アクセス要求、承認ワークフロー、レポート、プロファイルの更新などに利用されます。通常、プロビジョニングシステムにはPCやモバイル機器からアクセスできるウェブベースのインターフェイスが含まれています。標準ではありませんが、一部のプロビジョニングベンダーはセルフサービスと承認ワークフロー用のモバイルアプリを提供しています。
+
+強い関連性と相互作用的な性質を考えると、ユーザー・プロビジョニングシステムはオープンで拡張可能でなければなりません。プロビジョニングプロバイダーは、システムの柔軟性を持たせることを可能にするオープンAPI、ノーコードまたはローコードのワークフローおよび汎用コネクタを提供すべきです。
+
 @row
 ## User Provisioning Process Flow
+
+User-provisioning technologies allow organizations to efficiently manage thousands of identities by capturing lifecycle events and ensuring that user accounts and their associated privileges are kept up-to-date and accurate. These processes reduce administrative overhead and improve security. That said, automated user account provisioning is a complex, multifaceted process that includes three distinct phases:
+
+*   **Event trigger** : A business event or a change to an identity that triggers a provisioning action
+    
+*   **Policy administration** : Application of access policies that bind the identity to specific user accounts and entitlements
+    
+*   **User account provisioning** : Creation, maintenance, deactivation, or deletion of user accounts in target applications
+    
+
+@column
+## ユーザー・プロビジョニングプロセスフロー
 
 User-provisioning technologies allow organizations to efficiently manage thousands of identities by capturing lifecycle events and ensuring that user accounts and their associated privileges are kept up-to-date and accurate. These processes reduce administrative overhead and improve security. That said, automated user account provisioning is a complex, multifaceted process that includes three distinct phases:
 
@@ -155,15 +265,50 @@ There are three primary types of events:
 
 Joiners, Movers, and Leavers (JML) are grist for the user provisioning mill. Managing JML processes becomes the work of an identity system. This work includes connecting the user-provisioning system to trigger sources and then constructing policies to be evaluated for each event type for each target system.
 
+@column
+### イベントトリガー
+
+プロビジョニングのアクションはイベントから始まります。プロビジョニングを始めるようなイベントには次のようなものがあります：
+
+*   HRシステムでの新しい従業員を作成する
+    
+*   あるビジネスユニットから別のビジネスユニットに人員を移動させるようなActive Directoryエントリの変更をおこなう
+    
+*   ITサービス管理（ITSM）またはヘルプデスクチケットシステムでチケットを作成する
+    
+*   人間がプロビジョニングシステムと直接操作して、ユーザーアカウントの変更を要求する
+    
+
+イベントには主に3つのタイプがあります：
+
+*   Join
+    
+*   Move
+    
+*   Leave
+    
+
+Joiner、Movers、Leaver（JML）は、ユーザー・プロビジョニングの要です。JMLプロセスの管理は、アイデンティティシステムの作業になります。この作業には、ユーザー・プロビジョニングシステムをトリガーソースに接続し、各ターゲットシステムのイベントタイプごとに評価されるポリシーを構築することが含まれます。
+
 @row
 #### Join
 
 The easiest way to think about the Join event is when a new employee joins a company. She needs her benefits and payroll set up along with user accounts in IT systems. In its purest sense, Join events are meant to create a net new identity and net new user accounts in IT systems. [^1]
 
+@column
+#### Join
+
+Joinイベントを考える最も簡単な方法は、新入社員が会社に入社するときです。彼女は、ITシステムのユーザーアカウントとともに、福利厚生や給与計算を設定する必要があります。最も純粋な意味において、JoinイベントはITシステムに新しいアイデンティティと新しいユーザーアカウントを作成することを意味します。 [^1]
+
 @row
 #### Move
 
 When a person changes roles with an enterprise, she likely needs access to new business systems and to have access to her older ones removed. This is the purpose of the Move event. You can think of Move as a change in the relationship between the organization and person. They might change which business unit they report to, get promoted, or change their last name. [^2]
+
+@column
+#### Move
+
+ある人が企業で役割を変えるとき、おそらく新しいビジネスシステムへのアクセスが必要になり、古いものへのアクセスを削除する必要があります。これがMoveイベントの目的です。Moveイベントは、組織と個人との関係の変化と考えることができます。例えば、所属するビジネスユニットが変わったり、昇進したり、姓が変わったりすることがあります。 [^2]
 
 @row
 #### Leave
@@ -181,6 +326,24 @@ User-provisioning technologies provide various mechanisms to capture JML events,
 *   **Manual/Ticket:** In some instances, an organization may use a ticketing system or other manual process to notify the identity team of a change needed on the identity record. In this case, the identity administrator would update the identity record directly to trigger downstream policy and provisioning activities.
     
 *   **Reconciliation event:** Reconciliation is the process of identifying and processing changes to users and user access made directly on target systems. When an organization configures a user provisioning solution for centralized management of user access, that does not prevent changes from occurring directly on a target system. So, to ensure the consistency of user access and user attributes across the organization, the user-provisioning system will periodically _**reconcile**_ what it knows about users and their access to a specific target system. This reconciliation is accomplished by gathering and comparing all user data on the target system (full reconciliation) or by processing known changes to user access based on a changelog or other time-based query. When changes or variances are identified in a reconciliation process, events are triggered and processed based on defined policies. The result of reconciliation could be to synchronize changes from the target system to other systems, or it could be to roll back any locally applied changes that occurred outside of the user provisioning solution.
+    
+
+@column
+#### Leave
+
+退職は、Leaveイベントの最もシンプルな例です。このような場合、その人のユーザーアカウントは削除するか、少なくとも対象システムすべてで今後使用できないようにロックする必要があります。もう一つの例は、請負業者のプロジェクトが終了し、契約が終了した場合です。同じように；Leaveイベントが発生すると、ユーザープロビジョニングシステムはその人のアクセスを削除することになります。
+
+ユーザープロビジョニング技術はJMLイベントを捕捉するために、以下のような様々なメカニズムを提供します：
+
+*   **自動化されたプロビジョニング**：ユーザープロビジョニングシステムは、人事部、ITSMやディレクトリのような記録システムからのイベントを「リッスン」します。
+    
+*   **バッチ処理**：プロビジョニングシステムは定期的にスケジュールされたプロセスを実行し、権威あるソースに変更を問い合わせ、出力ファイルを生成します。
+    
+*   **セルフサービスのリクエスト**：今日のユーザープロビジョニングソリューションには、エンドユーザーのアクセス要求ポータルが含まれており、エンドユーザーやマネージャーは、ビジネス上の責任を果たすために必要な特定のシステムや権利へのアクセスを要求することができます。ユーザーまたは委譲された管理者は、セルフサービスインターフェースを介してユーザープロファイルを更新したり、アクセス権変更のリクエストをおこなったりします。
+    
+*   **手動/チケット**：場合によっては、組織はアイデンティティ・レコードに必要な変更をアイデンティティチームに通知するために、チケットシステムまたは他の手動プロセスを使用することがあります。この場合、アイデンティティ管理者はアイデンティティ・レコードを直接更新し、下流のポリシーおよびプロビジョニング活動を開始します。
+    
+*   **リコンシリエーションイベント**：リコンシリエーションは、ターゲットシステム上で直接おこなわれたユーザーおよびユーザーアクセスへの変更を特定し、処理するプロセスです。組織がユーザーアクセスの集中管理のためにユーザープロビジョニングソリューションを構成する場合、ターゲットシステム上で直接発生する変更を防ぐことはできません。そこで、組織全体のユーザーアクセスとユーザー属性の一貫性を確保するために、ユーザープロビジョニングシステムは特定のターゲットシステムに対するユーザーとそのアクセスについて知っていることを定期的に _**照合（reconcile）**_ ことになります。この照合は、ターゲットシステム上のすべてのユーザーデータを収集して比較すること（完全な照合）、または変更ログやその他の時間ベースのクエリに基づいてユーザーアクセスに対する既知の変更を処理することによって実施されます。照合プロセスで変更または差異が特定されると、定義されたポリシーに基づいてイベントがトリガーされ、処理されます。照合の結果、ターゲットシステムから他のシステムに変更が同期されることもあれば、ユーザープロビジョニングソリューションの外部で発生したローカルに適用された変更がロールバックされることもあり得ます。
     
 
 @row
@@ -203,6 +366,26 @@ Different kinds of policies use different combinations of Who and What to help i
 
 It is important to note that a user provisioning process won’t have just a single policy for a target system or event. Policies can be combined and applied to multiple target systems and triggering events.
 
+@column
+### ポリシー管理
+
+これまで、組織はターゲットシステムへのユーザのアクセスを場当たり的に管理してきました；複雑な企業環境を考慮すると、これはもはや実行不可能です。誰がどのターゲットシステムにアクセスすべきかを決定するための文書化されたルールが必要です；さらにターゲットシステムにおいて人々がどのようなエンタイトルメントと特権を持つかを管理する必要があります。これが、ユーザープロビジョニングシステムにおけるポリシーの役割です。ユーザーアカウントがどのグループのメンバーであるべきか、その詳細を管理者に任せるのではなく、ポリシーによってどのグループが必須かオプションか、さらにはメンバーであることを禁じているのかを記述することができるのです。
+
+ポリシーは、人々のグループを、関連するアクセス（エンタイトルメント、特権など）のグループとターゲットシステムのグループに結びつける方法と考えることができます。このように、ユーザー・プロビジョニングには、常に2つの要素があります：誰と何です。ポリシー誰の部分には、そのポリシーがどのような人々に適用されるかという包含基準が記述されます。例えば、すべての従業員、業務委託者、財務担当者などはすべて、ポリシーの「誰」の部分の例です。ポリシーの「何」の部分は、その人が取得するユーザーアカウントと関連するエンタイトルメントや特権を記述します。例えば、すべてのターゲットシステムでユーザーアカウントを作成するという非常に粗い粒度のものから、ターゲットシステムでこの特定のエンタイトルメントとこの2つの特定の特権を作成するという非常に細かい粒度のものまで、「何」の部分にはさまざまなものがあります。
+
+異なる種類のポリシーは、アイデンティティ実務者がアクセスを管理するために「誰」と「何」の異なる組み合わせを利用します。ポリシーの全てのトピックとなると非常に広範になりますが、この記事では4種類のポリシーに焦点を当てます：
+
+*   生得権（Birthright）
+    
+*   ロールベース
+    
+*   職務分掌
+    
+*   ワークフロー承認
+    
+
+ユーザープロビジョニングプロセスは、ターゲットシステムやイベントに対して単一のポリシーだけを持つわけではないことに注意することが重要です。複数のターゲットシステムやトリガーとなるイベントに対して、ポリシーを組み合わせて適用することができます。
+
 @row
 #### Birthright
 
@@ -217,6 +400,20 @@ There are specific systems and entitlements that often broad swaths of the organ
 
 Birthright policies can be thought of as defining access that is fundamental to certain kinds of people who have a relationship with the organization. Such access does not need additional scrutiny, review, or approval; simply by being a person who matches the criteria of the policy (such as being a member of the Finance department) that person is allowed to have and will get user accounts in certain systems with specified levels of access (as managed by their user account’s associated entitlements and privileges.) More often than not, birthright policies grant coarse-grained access to target systems; that is to say, they might only give someone a user account in an email system but not necessarily access to specific distribution groups. Birthright policies are most commonly applied as part of a Join event and typically occur by assigning one or more business roles. Birthright events can also happen as a part of a Move event, specifically when a person moves from one business function to another. For example, when a person is hired into the Accounting division within an organization, they’d receive birthright access to things like email and the productivity suite and basic access to critical accounting systems. When that person then transfers to Corporate Strategy, they lose access to the account systems, gain access to budget forecasting systems, and continue to retain access to email and productivity tools.
 
+@column
+#### 生得権
+
+しばしば組織全体が必要とする特定のシステムやエンタイトルメントがあり、この種のアクセス権は生得権とみなされます。このようなポリシーには、次のような例があります：
+
+*  すべてのフルタイム従業員は、電子メール、カレンダー、コラボレーション、およびファイル共有が必要です。
+    
+*   財務部門の社員は、財務報告システムへ最低限アクセスする必要がある。
+    
+*   インターンは、「Intern Team Excellence」コラボレーションチャンネルにアクセスする必要がある。
+    
+
+生得権ポリシーは、組織と関係のある特定の種類の人々にとって基本的なアクセス権を定義するものと考えることができます。このようなアクセス権には、追加の精査、レビューまたは承認は必要ありません；単にポリシーの基準に一致する人（財務部門のメンバーなど）であることによって、その人は特定のアクセスレベル（そのユーザーアカウントの関連エンタイトルメントと特権によって管理される）で特定のシステムのユーザーアカウントを持つことが許され、それを取得することができます。多くの場合、生得権ポリシーはターゲットシステムに対して荒い粒度のアクセス権を付与します；つまり、ある人に電子メールシステムのユーザーアカウントを与えるだけかもしれませんが、特定の部門グループへのアクセス権は与える必要はありません。生得権ポリシーは、最も一般的にはJoinイベントの一部として適用され、通常1つまたは複数のビジネスロールを割り当てることによって発生します。生得権イベントは、Moveイベントの一部として発生することもあり、具体的にはある人があるビジネス部門から別の部門に異動するときに発生します。たとえば、ある組織の経理部門に採用された場合、その人は電子メールやオフィススイート、重要な会計システムへの基本的なアクセス権などの権利を得ます。しかし、その人が経営企画部に異動すると、会計システムへのアクセス権は失われ、予算予測システムへのアクセスが可能になり、電子メールとオフィスツールへのアクセス権は継続されます。
+
 @row
 #### Role-based
 
@@ -226,6 +423,15 @@ Much is made of roles in identity management. [^3] Roles can come in a variety o
 
 A role-based policy in a user-provisioning system uses business and technical roles to govern access for more specific sets of people, entitlements, and privileges in target systems than birthright policies do. For example, a user-provisioning system might have a birthright policy that gives all full-time employees access to email. An additional role-based policy might grant Tellers access to a specific mailing list and shared drive.
 
+@column
+#### ロールベース
+
+組織には多くのビジネス機能があり、そのため多くの異なるビジネス責任と何万もの個人のエンタイトルメントがシステムに存在するため、誰がアクセス権を持つかを個人レベルで管理する方法はありません。これを実現しようとすると、何千万という人と権限の組み合わせを管理することになります。ユーザープロビジョニングシステムは、このカオスに秩序をもたらすために、ロールを使って人とエンタイトルメントを集約し、より管理しやすいポリシーコンポーネントにすることを試みています。
+
+アイデンティティ管理において、多くの場合ロールが利用されます。 [^3] ロールにはさまざまな種類があります；この記事ではビジネスロールとテクニカルロールに焦点を当てます。ビジネスロールは、同じビジネス責任を共有する人々を集約する方法です。例えば、リテールバンキング組織は「テラー」というビジネスロールを持ち、テラーとして働く人に適したアクセス権を記述するために使用することができます。この記事で理解する必要がある2つ目のロールは、「テクニカル」ロールです。テクニカルロールは、あるタスクを実行するために1つまたは複数の対象システムで必要とされるエンタイトルメントおよび特権を集約する方法です。例えば、同じリテールバンクが「Check and Update Balances」というテクニカルロールを持ち、そのシステム内のユーザーアカウントに普通預金口座の残高を確認および更新する能力を与えることができます。
+
+ユーザープロビジョニングシステムのロールベースのポリシーは、ビジネスロールおよびテクニカルロールを使用し、対象システムにおける特定の人々、エンタイトルメントおよび特権のセットに対するアクセス権を生得権ポリシーよりも管理するものです。たとえば、ユーザープロビジョニングシステムには、すべてのフルタイム従業員に電子メールへのアクセス権を与える生得権ポリシーがあるとします。さらにロールベースのポリシーによって、テラーに特定のメーリングリストと共有ドライブへのアクセスを許可することができます。
+
 @row
 #### Segregation of Duties
 
@@ -233,12 +439,26 @@ Stemming from the fallout of the WorldCom and Enron accounting scandals, the Sar
 
 If roles are a way of describing what someone should have, then segregation of duty (SoD) policies are a way of describing what they must not have. Such policies are typically evaluated when a provisioning event is triggered so new toxic combinations are not introduced into target systems and existing ones are detected and remediated.
 
+@column
+#### 職務分掌
+
+WorldCom社とEnron社の会計スキャンダルに端を発し、Sarbanes-Oxley法はビジネス慣習に大きな影響を与えました。 [^4] この影響は、ユーザープロビジョニングにも及んでいます。コンプライアンス活動の一環として、組織はユーザーへのアクセス権を付与するだけでなく、アクセス権の「有害な組み合わせ」を防止するためのユーザープロビジョニングポリシーに注目しました。アクセス権の有害な組み合わせとは、例えば、新しいベンダーを作成し、そのベンダーに支払いをおこなうことができるなど、ある種の不正行為を可能にするような権限を持つユーザーのことです。このようなアクセス権の組み合わせでは、悪質な行為者が金融システム内に架空の会社を設立し、その会社に金銭を流用することが可能になります。有害な組み合わせのポリシーのもう一つの応用例は、システム管理者でない人がシステム管理者または高度な特権を持つことを防ぐことです。
+
+ロールがある人が持つべきものを記述する方法であるなら、職務文章（SoD）ポリシーは、持ってはならないものを記述する方法です。このようなポリシーは一般的にプロビジョニングイベントがトリガーされたときに評価され、新しい有害な組み合わせがターゲットシステムに導入されないようにし、既存の組み合わせは検出され、是正されます。
+
 @row
 #### Workflow Approvals
 
 Workflow approvals are an essential component of the policy management toolbox. Organizations with a mature provisioning deployment may only auto-provision 70-80% of access using birthright rules, roles, or SoD. So how does the remaining 20-30% of access get provisioned? The answer is self-service access request and approval workflows.
 
 Workflow approvals are used when a human needs to make a policy decision. If a rule or role is not available, the provisioning system invokes a workflow process that routes an access request to a designee for approval. For example, an employee may make a self-service access request that is routed to a line manager for approval. The workflow approval process applies a layer of control and documents the access policy decision.
+
+@column
+#### ワークフロー承認
+
+ワークフロー承認は、ポリシー管理ツールボックスの重要な要素です。成熟したプロビジョニングデプロイメントを持つ組織は、生得権ポリシールール、ロールまたはSoDを用いて、アクセス権の70-80%のみ自動プロビジョニングするでしょう。では、残りの20-30%のアクセス権はどのようにプロビジョニングされるのでしょうか？答えは、セルフサービスのアクセス権リクエストと承認ワークフローです。
+
+ワークフロー承認は、人間がポリシー決定をおこなう必要がある時に利用されます。ルールまたはロールが利用できない場合、プロビジョニングシステムはワークフロープロセスを呼び出し、承認のためにアクセス権要求を被指名人にルーティングします。例えば、従業員がセルフサービスアクセス権要求を作成し、承認のためにラインマネージャにルーティングされる場合があります。ワークフロー承認プロセスは制御レイヤーに適用され、アクセスポリシー決定を文書化します。
 
 @row
 ### User Account Provisioning
@@ -250,12 +470,29 @@ Once a provisioning event has been triggered and policy evaluated to determine w
 *   Manual
     
 
+@column
+### ユーザーアカウントプロビジョニング
+
+プロビジョニングイベントが呼び出され、設定または変更する必要があるユーザアカウント属性、エンタイトルメントおよび特権を決定するためにポリシーが評価されたら、その情報をターゲットシステムに送信してそのシステムでローカルに保存されているユーザアカウントの変更に影響を与える必要があります。ターゲットシステム内で必要な変更をおこなう方法は、プロビジョニングのアクションです。プロビジョニングは主に2つの方法で実行できます：
+
+*   自動
+    
+*   手動
+    
+
 @row
 #### Automated
 
 Automated user account provisioning is the process of creating and maintaining a user account in the target system using automated processing. To automate the user account provisioning process, the target system must provide a user management API or other means for the user-provisioning solution to systematically create, manage, and deactivate/delete user accounts.
 
 Automated user account provisioning in target systems is the ultimate goal of user-provisioning technologies, but it is not without challenges. Each target system is an island. The user-provisioning system must maintain connections to the various target systems, which can be a heavy lift.
+
+@column
+#### 自動
+
+自動ユーザアカウントプロビジョニングは、自動化されたプロセスを利用してターゲットシステムのユーザアカウントの作成とメンテナンスをおこなうプロセスです。ユーザアカウントプロビジョニングプロセスを自動化するために、ターゲットシステムはユーザー管理APIまたはシステム的にユーザーアカウントを作成、管理および無効化/削除するユーザープロビジョニングソリューションのための手段を提供しなくてはなりません。
+
+ターゲットシステムでの自動ユーザーアカウントプロビジョニングは、ユーザープロビジョニング技術の究極的な目標ですが、課題がないわけではありません。各ターゲットシステムは島のようなものです。ユーザープロビジョニングシステムは、さまざまなターゲットシステムへの接続を維持する必要があり、これは大変な作業になる可能性があります。
 
 @row
 #### Manual
@@ -268,12 +505,30 @@ It is fair to ask why manual provisioning is needed or wanted, given such risks.
 
 Manual provisioning is wanted because automation isn’t worth the effort. Consider an application with very few users, entitlements, or changes required, or all three. An identity team may decide that it is not worth deploying (or possibly building) an automatic provisioning connector but instead choose to accept the human cost and risk of manual provisioning. It is a best practice to apply automated provisioning to high volume (lots of users), high velocity (frequent changes to user accounts), and high value (mission-critical, financial material, etc.) systems. Conversely, it is not a best practice to automate every single system in the enterprise because, eventually, the costs to maintain connectors are simply not worth it.
 
+@column
+#### 手動
+
+手動プロビジョニングでは、ターゲットシステムのユーザーアカウントを変更するためには人間の介在が必要です。しばしば、この介在はターゲットシステムの独自のユーザー管理インターフェイスを使用して、情報を取得し、手動でターゲットシステムに入力するチームまたは個人に送信されるユーザープロビジョニングイベントの詳細という形を取ります。必要な情報は、電子メールまたは作業チケットで送信できます。
+
+手動プロビジョニングでは、ユーザープロビジョニングの重要なステップに人間が入り込み、2つの特定のリスクが生じます。１つ目に、ターゲットシステムを手動で操作してユーザーアカウントを作成および変更する人は、その作業の定義上、高度な特権を持つユーザーです。このような特権の付与を最小限に抑えることは良い方法ですが、必要な場合もあります。手動プロビジョニングによってもたらされる2つ目のリスクは、人的エラーの可能性です。属性、エンタイトルメントまたは特権を読み間違えたり、タイプミスしたりして、ターゲットシステムでユーザーアカウントを誤って設定する可能性があります。これにより、ユーザー名のスペルミスなどの小さな問題が発生する可能性がありますが、誤った権限が割り当てられたり、エンタイトルメントの有毒な組み合わせが発生したりする可能性もあります。
+
+このようなリスクを考えると、なぜ手動プロビジョニングが必要なのか、もしくは求められるのかを尋ねるのは当然です。すべてのターゲットシステムに、自動プロビジョニングコネクタが接続できるAPIがあるわけではないため、手動プロビジョニングが必要です。非常に古いオペレーティングシステムで実行されている自社開発の総勘定元帳システムは、その一例です。もう1つの例は、ターゲットシステムがマネージドサービスプロバイダーによって実際に管理されており、アイデンティティチームがそのサービスプロバイダーに直接アクセスできない状況です。その場合、ユーザーアカウントの変更をマネージドサービスプロバイダーにメールまたはチケットで送信して、必要な変更を行うようにトリガーする必要があります。
+
+自動化は労力に見合わないため、手動プロビジョニングが望まれます。非常に少数のユーザ、エンタイトルメントまたは変更が必須、あるいはその3つすべてを持つアプリケーションを考えてみてください。アイデンティティチームは、自動プロビジョニングコネクタをデプロイ（または構築）する価値がないと判断し、代わりに手動プロビジョニングの人的コストとリスクを受け入れることを選択する場合があります。自動プロビジョニングは、大規模（多数のユーザー）、高速（ユーザーアカウントの頻繁な変更）、高価（ミッションクリティカル、財務資料など）なシステムに適用するのがベストプラクティスです。逆に、企業内のすべてのシステムを自動化することはベストプラクティスではありません。なぜなら、最終的にはコネクタを維持するためのコストが単に割に合わなくなるだけだからです。
+
 @row
 ## The Role of Standards
 
 The identity industry recognized that the proliferation of proprietary user management APIs would lead to a lack of automated provisioning and make it difficult for organizations to mitigate the risks inherent in manual user provisioning. Starting with [Directory Service Markup Language](https://en.wikipedia.org/wiki/Directory_Services_Markup_Language) in 1999, followed by [Service Provisioning Markup Language](https://en.wikipedia.org/wiki/Service_Provisioning_Markup_Language) [^5] (SPML) in 2003, and finally followed by [System for Cross-domain Identity Management](https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management) [^6] (SCIM) in 2011, the industry has produced standards. The latest version of SCIM, version 2, has had significant uptake and, as of the second half of 2021, signs that the standards community is interested in making further enhancements. The fact that there have been at least three different standards with multiple versions is a testament to both the challenge of building a viable standard and the changes in the application development world.
 
 For a user provisioning standard to be considered successful, it requires adoption from both user-provisioning system providers and application vendors. This “it takes two” challenge had thwarted mass adoption, especially in the era of on-premise software. The era of cloud computing and SaaS has seen a marked increase in the number of service providers willing to use SCIM v2 as well as user-provisioning technology providers. If the reader’s IT organization is building custom applications, it is worth investigating the implementation of SCIM v2 in those apps to facilitate automated user provisioning, especially in high-volume, high-velocity, and high-value applications.
+
+@column
+## 標準仕様の役割
+
+アイデンティティ業界は、独自のユーザー管理APIの普及が自動プロビジョニングの欠如につながり、組織が手動ユーザープロビジョニングに固有のリスクを軽減することが困難になることを認識していました。1999年の[Directory Service Markup Language](https://en.wikipedia.org/wiki/Directory_Services_Markup_Language)に始まり、2003年の[Service Provisioning Markup Language](https://en.wikipedia.org/wiki/Service_Provisioning_Markup_Language) [^5] （SPML）、そして2011年の[System for Cross-domain Identity Management](https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management) [^6] （SCIM）と業界は標準規格を策定してきました。SCIMの最新版であるバージョン2には大きな反響があり、2021年後半の時点では、標準化コミュニティがさらなる機能強化に関心を持つ兆しがあります。少なくとも3種類の規格があり、複数のバージョンが存在するという事実は、実行可能な規格を構築することの難しさとアプリケーション開発の世界の変化の両方を証明しています。
+
+ユーザープロビジョニング標準仕様が成功したと見なされるには、ユーザープロビジョニングシステムプロバイダとアプリケーションベンダの両方から採用される必要があります。この「二人がかり」という課題が、特にオンプレミス型ソフトウェアの時代には、大量採用を阻んでいました。クラウドコンピューティングとSaaSの時代には、ユーザープロビジョニング技術プロバイダと同様に、SCIM v2の利用に前向きなサービスプロバイダの数が著しく増加しました。読者のIT組織がカスタムアプリケーションを構築している場合、特に大規模、高速、高価値のアプリケーションにおいて、自動ユーザープロビジョニングを促進するために、それらのアプリケーションへのSCIM v2の実装を調査する価値があります。
 
 @row
 ## Why is User Provisioning Challenging?
@@ -290,6 +545,21 @@ Last but not least, maintaining the entitlement catalog can be a difficult task.
 
 While the advantages of automated user account provisioning are well understood, deployments can be challenging. Identity practitioners should obtain executive support and set proper expectations, build a structured process for onboarding applications (e.g., dedicated resources, intake forms/surveys, automation, etc.), and set clear key performance indicators that show continued progress.
 
+@column
+## なぜユーザープロビジョニングは困難なのか？
+
+ユーザープロビジョニングシステムが市場に出てから20年以上が経ちました。この間、ユーザープロビジョニングシステムは導入が難しく高価であるという評判を集め、多くの組織が投資に対するリターンを実現することが困難であると感じてきました。なぜでしょうか？
+
+ユーザープロビジョニングは、多くの点でデータ統合テクノロジに似ています。データ統合テクノロジと同様に、ユーザープロビジョニングシステムは環境内のさまざまなシステムやサービスにデータを集約して同期します。新しい接続ごとに、新しいレベルの複雑さが追加されます。単一のアプリケーションをプロビジョニング環境にオンボーディングするプロセスでは、アプリケーションのユーザー管理APIと認可構成、コネクタのデプロイメント、アクセスポリシーの構成およびユーザーを管理するためのポリシーと手順の実装（例えば、アプリケーション内で直接ユーザーを作成または管理することを禁止するルール）を理解する必要があります。1つのアプリケーションの追加が複雑になる場合があります；環境内に数百または数千のアプリケーションがある場合は、その複雑さを考慮してください。
+
+困難なもう1つの側面は、SORのデータ品質の問題です。理想的には、1つの権威のあるSORが存在して欲しいですが、常にそうであるとは限りません。情報が複数の権威あるソースから送られてきた場合、データの衝突が発生することがあります。また、SORの管理者とユーザーは、不十分で質の低いデータが下流に与える影響を理解していない可能性があります。たとえば、特定のフィールドに値を入力しなかったり、不正確なデータを入力したり、イベントトリガーを遅延させたりすることがあります。これはすべて、アイデンティティ・レコードとアクセス権を正確に更新するプロビジョニングシステムの機能に影響します。データ品質プロセスの管理は、アイデンティティ担当者に負担をかける可能性があります。
+
+もう1つの共通の課題は、ポリシー定義です。アイデンティティ担当者は、アクセスポリシー（ルール/ロール）を構成する責任がありますが、アクセス権決定権を所有していません。監査、法務、ガバナンス、リスク管理、コンプライアンス（GRC）などと連携した基幹業務は、独自のアクセス権決定をおこないます。プロビジョニングポリシーとロールの定義のため、この情報を収集する作業は、重要な作業です。
+
+最後になりますが、エンタイトルメントカタログの保守は困難な作業です。1つの組織に、数百万ではないにしても数十万のエンタイトルメントがある場合があります。資格とメタデータを収集する作業を過小評価しないでください。
+
+自動化されたユーザアカウントプロビジョニングの利点はよく理解されていますが、そのデプロイは困難な場合があります。アイデンティティ担当者は、経営陣の支持を得て適切な期待値を設定し、アプリケーションのオンボーディングのための構造化されたプロセス（専用のリソース、インテークフォーム/調査、自動化など）を構築し、継続的な進歩を示す明確な主要業績評価指標を設定する必要があります。
+
 @row
 ## The Next Generation, Hybrid-Approach to Provisioning
 
@@ -303,24 +573,37 @@ Modern security models that include remote access, cloud computing, and zero-tru
 
 A hybrid provisioning architecture allows organizations to pre-provision to a set of applications (typically on-premises) but use OIDC, SAML, and SCIM-based connectors to enable JIT provisioning (primarily used in cloud and SaaS product use cases).
 
+@column
+## プロビジョニングへの次世代ハイブリッドアプローチ
+
+ユーザープロビジョニング技術はかなり以前から存在していたが、ユーザープロビジョニング技術が開発されたのはIT環境がより抑制されていた時代でした。対象システムや記録システムはオンプレミスにあり、ユーザーは主に従業員がオンサイトでリソースにアクセスするものでした。
+
+クラウド、モバイル、在宅勤務、その他さまざまな取り組みにより、ユーザープロビジョニングの状況は変化しています。現在、権威あるシステムやターゲットシステムはクラウド（およびオンプレミス）にホストされており、外部ユーザーが社内のリソースにアクセスしています。
+
+従来のセキュリティモデルでは、プロビジョニングは管理者側の機能でした（ユーザーは管理者によりシステムに事前にプロビジョニングされます）。これに対して、認証と認可の技術は、ユーザーがシステムにログインする時点で発生するランタイム機能です。SIEM、DLP、脅威検知などのセキュリティ技術はユーザーがセッションに参加した時点で起動します。
+
+リモートアクセス、クラウドコンピューティング、ゼロトラストのセキュリティ原則を含む最新のセキュリティモデルは、ユーザープロビジョニングに対する新しいアプローチ、すなわちジャストインタイム（JIT）、最小権限アプローチを必要とします。この最新のプロビジョニングアプローチは、管理者時にユーザーを事前にプロビジョニングするのではなく、実行時にユーザーをプロビジョニングし、タスクを完了するために必要な最小限の特権を与えることを意味します。その結果、組織は従来のAPIベース、SAML/OIDCベース、およびSCIMベースのコネクタを組み合わせたハイブリッドなプロビジョニングアプローチを導入しています。
+
+ハイブリッドプロビジョニングアーキテクチャでは、企業は一連のアプリケーション（通常はオンプレミス）に事前プロビジョニングをおこないますが、OIDC、SAMLおよびSCIMベースのコネクタを使用してJITプロビジョニングを可能にします（主にクラウドおよびSaaS製品の使用例で使用されます）。
+
 @row
 ## Author Bios
 
 Ian Glazer
 
-![](/assets/images/idpro_bok/iglazer.jpg)
+<!-- ![](/assets/images/idpro_bok/iglazer.jpg) -->
 
 Ian Glazer is the founder and president of Weave Identity – an advisory services firm. Prior to founding Weave, Ian was the Senior Vice President for Identity Product Management at Salesforce. His responsibilities include leading the product management team, product strategy, and identity standards work. Earlier in his career, Ian was a research vice president and agenda manager on the Identity and Privacy Strategies team at Gartner, where he oversaw the entire team’s research. He is a Board Emeritus and the co-founder of IDPro and works to deliver more services and value to the IDPro membership, raise funds for the organization, and help identity management professionals learn from one another. During his career in the identity industry, he has co-authored a patent on federated user provisioning, co-authored and contributed to user provisioning specifications, and is a noted blogger, speaker, and photographer of his socks.
 
 Lori Robinson
 
-![](/assets/images/idpro_bok/lrobinson.jpg)
+<!-- ![](/assets/images/idpro_bok/lrobinson.jpg) -->
 
 Lori Robinson is the Vice President of Enterprise Identity Product Management at Salesforce where leads a team responsible for Salesforce’s enterprise identity management program. Before joining Salesforce she was the VP Product and Market Strategy at SailPoint. She also served as the Managing Vice President and Analyst at Gartner where she covered the identity governance and administration, privileged access management, and consumer IAM markets. Lori is a recognized industry thought leader, speaker, and publisher. She is passionate about advancing opportunities for women in IT and has led various user groups, round tables, and events for women in identity.
 
 Mat Hamlin  
   
-![](/assets/images/idpro_bok/mhamlin.png)
+<!-- ![](/assets/images/idpro_bok/mhamlin.png) -->
 
 Mat Hamlin is the Vice President of Product Management for Platform Identity at Salesforce. His responsibilities include leading the product management team, product strategy, and innovation for the Identity Services on the Salesforce core platform. Prior to Salesforce, he served in multiple product management roles at SailPoint, Oracle, and Sun Microsystems, focusing on User Provisioning, Access Governance, and Enterprise Role Management.
 
