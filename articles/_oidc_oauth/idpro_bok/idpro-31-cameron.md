@@ -3,6 +3,7 @@ layout: columns
 title: An Overview of the Digital Identity Lifecycle (v2)
 permalink: /docs/oidc_oauth/idpro_bok/31
 date: 2024-09-09
+modify_date: 2024-09-27
 aside:
   toc: true
 tags: ["IDPro", "IDPro BoK", "アイデンティティ・ライフサイクル", "ユーザー・ジャーニー"]

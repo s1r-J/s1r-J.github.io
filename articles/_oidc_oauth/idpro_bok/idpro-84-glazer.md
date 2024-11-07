@@ -3,6 +3,7 @@ layout: columns
 title: User Provisioning in the Enterprise
 permalink: /docs/oidc_oauth/idpro_bok/84
 date: 2024-09-09
+modify_date: 2024-10-20
 aside:
   toc: true
 tags: ["IDPro", "IDPro BoK", "ユーザープロビジョニング", "エンタープライズ"]

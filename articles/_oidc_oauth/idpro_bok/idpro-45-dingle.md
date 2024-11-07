@@ -3,6 +3,7 @@ layout: columns
 title: "Introduction to Identity - Part 2: Access Management"
 permalink: /docs/oidc_oauth/idpro_bok/45
 date: 2024-09-09
+modify_date: 2024-09-16
 aside:
   toc: true
 tags: ["IDPro", "IDPro BoK", "アクセス管理"]

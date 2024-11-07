@@ -3,6 +3,7 @@ layout: columns
 title: Introduction to Privacy and Compliance for Consumers (v3)
 permalink: /docs/oidc_oauth/idpro_bok/44
 date: 2024-09-09
+modify_date: 2024-09-23
 aside:
   toc: true
 tags: ["IDPro", "IDPro BoK", "プライバシー", "プライバシー・バイ・デザイン"]
