@@ -3,9 +3,10 @@ layout: columns
 title: Introduction to OAuth 2.0
 permalink: /docs/oidc_oauth/idpro_bok/99
 date: 2024-09-09
+modify_date: 2024-11-09
 aside:
   toc: true
-tags: ["IDPro", "IDPro BoK"]
+tags: ["IDPro", "IDPro BoK", "OAuth2.0", "OIDC", "OpenIDConnect"]
 ---
 
 IDPro Body of Knowledgeの翻訳メモです。
@@ -22,6 +23,15 @@ This article will provide an introduction to a widely deployed protocol named OA
 Keywords: oauth2, oidc, openid connect
 
 
+@column
+## Abstract
+
+この記事では、OAuth 2.0（Open Authorization 2.0の略）と名付けられた広く普及しているプロトコルについて紹介します。このプロトコルは、大規模なソーシャルメディアサービスプロバイダーや今日のインターネット上の他の多くのWebベースのサービスで広く使われています。
+
+Keywords: oauth2, oidc, openid connect
+
+
+@row
 By Bertrand Carlier
 
 © 2023 IDPro, Bertrand Carlier
@@ -37,20 +47,43 @@ This article will focus on the current published standards; work is underway in 
 
 OAuth2 can be considered a three-step protocol:
 
-[^1]:  Get an access token
+1. Get an access token
     
-[^2]:  Use the access token
+2. Use the access token
     
-[^3]:  Validate the access token
+3. Validate the access token
     
 
+@column
+## OAuth2について
+
+一言で言えば、この標準プロトコルは、 **クライアントアプリケーション** （ウェブサイト、モバイルアプリケーション、インターネットに接続されたデバイスなど）から、おそらく **リソース所有者** （エンドユーザーなど）に代わって、 **保護されたリソース** （APIなど）へのアクセスを許可することを目的としています。このプロトコルはいくつかのトランスポートプロトコルと関連付けることができますが、RESTウェブサービスをセキュアにするために非常に人気があります。
+
+この記事では、現在公開されている標準仕様に焦点を当てます；IETFの[__OAuthワーキンググループ__](https://datatracker.ietf.org/wg/oauth/about/)では、この資料の一部を更新する作業が進行中です。OAuthがどのようにして生まれたか、また他の認証プロトコルとの関係については、Pamela DingleのIDPro Body of Knowledgeの記事、「“Introduction to Identity - Part 2: Access Management」 [^1]を参照してください。
+
+OAuth2は3つのステップのプロトコルと考えることができます：
+
+1. アクセストークンを取得する
+    
+2. アクセストークンを利用する
+    
+3. アクセストークンを検証する
+    
+
+@row
 ![A diagram of a software process Description automatically generated](/assets/images/idpro_bok/99-image1.png)
 
 Figure 1: High-level diagram of OAuth2 flows
 
+@row
 When looking into the OAuth2 specification space, you are quickly surrounded with many documents, making it difficult to determine the easiest path to follow.
 
 Let’s see where to start the journey and where to head.
+
+@column
+OAuth2の仕様の世界を探検すると、すぐにたくさんのドキュメントに取り囲まれてしまい、最も簡単なパスを決定することが難しくなります。
+
+どこから旅を始め、どこに向かうべきかを見てみましょう。
 
 @row
 ### Terminology
@@ -68,15 +101,38 @@ Let’s see where to start the journey and where to head.
 | Access token | The OAuth2 token that allows a client to get access to a protected resource |
 | Refresh token | The OAuth2 token that allows a client to renew an access token when it is expired without the user’s presence |
 
+@column
+### 用語解説
+
+|     |     |
+| --- | --- |
+| **用語** | **定義** |
+| クライアント | APIを利用するクライアントアプリケーション |
+| 保護されたリソース | OAuth2の用語でのAPI |
+| リソースオーナー | クライアントアプリケーションを利用し、保護されたリソースにアクセスすることを許可されたエンドユーザー |
+| 認可サーバー（AS） | OAuth2サーバーは、クライアントを認可し、トークンを発行し、場合によってトークンを検証することができます |
+| スコープ | クライアントがアクセスすることを認可される保護されたリソース（の一部）を指定する文字列 |
+| ベアラートークン | 保護されたリソースへアクセスするには所持していることで十分なトークン |
+| 送信者制約付きトークン | 保護されたリソースへアクセスするには所持していることだけでは不十分なトークン（クライアントアプリケーションによる追加のアイデンティティの証明が必須） |
+| アクセストークン | クライアントが保護されたリソースへアクセスすることを許可するOAuth2トークン |
+| リフレッシュトークン | アクセストークンが有効期限切れとなったとき、ユーザーの存在なしにアクセストークンを更新することをクライアントに許可するOAuth2トークン |
+
 @row
 ## **Where to start**
 
 OAuth2 is defined through a series of IETF RFC documents that each describe a specific aspect, use case, or profile of use of the protocol.
 
-![](/assets/images/idpro_bok/image2.png)
+@column
+## **どこから始めるか**
+
+OAuth2はIETF RFCの一連のドキュメントによって定義されており、それぞれがプロトコルの特定の側面、ユースケースまたは利用プロファイルを記述しています。
+
+@row
+![](/assets/images/idpro_bok/99-image2.png)
 
 Figure 2: An artistic rendering of OAuth and related standards, courtesy of Aaron Parecki
 
+@row
 Everything starts with two RFC documents:
 
 *   [_RFC 6749 - The OAuth 2.0 Authorization Framework_](https://www.rfc-editor.org/info/rfc6749) defines four ways for a client application to obtain a token from an authorization server (two of those are now deprecated). Those are called flows or authorization grants. [^2]
@@ -91,6 +147,22 @@ Everything starts with two RFC documents:
         
 
 Let’s use this breakdown to see what OAuth2 offers.
+
+@column
+2つのRFCドキュメントから全てが始まります：
+
+*   [_RFC 6749 - The OAuth 2.0 Authorization Framework_](https://www.rfc-editor.org/info/rfc6749)は、クライアントアプリケーションが認可サーバーからトークンを取得する4つの方法を定義しています（現在ではそのうち2つは非推奨です）。これらはフローもしくは認可グラントと呼ばれます。 [^2]
+    
+*   [_RFC 6750 - The OAuth 2.0 Authorization Framework: Bearer Token Usage_](https://www.rfc-editor.org/info/rfc6750)は、クライアントアプリケーションが保護されたリソースへの後続のリクエストでのトークンを利用する方法を定義しています。 [^3]
+    
+*   その後、別のドキュメントでは検証手順に役立ちます：
+    
+    *   [_RFC 7662 - OAuth 2.0 Token Introspection_](https://www.rfc-editor.org/info/rfc7662)は、トークンの有効性を検証したり、トークンからデータを取得したりするために利用できる認可サーバーに対するトークンイントロスペクションについて定義しています。 [^4]
+        
+    *   もしくは、[_RFC 9068 - JSON Web Token (JWT) Profile for OAuth 2.0 Access Tokens_](https://www.rfc-editor.org/info/rfc9068)は、アクセストークンのためのJWTプロファイルを定義しています。 [^5]
+        
+
+OAuth2が提供するものを確認するため、このブレークダウンを利用しましょう。
 
 @row
 ### **Get a Token:**
@@ -115,6 +187,29 @@ This step can be seen as a two-step process: first, the client must be authorize
 *   **Client credentials** aim to authenticate the client application only to deliver the access token (in that case, the AT is not linked to an end user’s identity but only to the client application identity). This flow is suited for application-to-application access.
     
 
+@column
+### **トークンを取得する**
+
+このステップは2ステッププロセスと見ることができます：まず、クライアントはアクセストークンのための認可されなければならず、そしてクライアントはトークンリクエストを実行します。
+
+*   前述したように、トークンを取得するための4つの初期方法のうち、[_OAuth2.1_](https://datatracker.ietf.org/doc/draft-ietf-oauth-v2-1/)（現在ドラフト）では2つが非推奨になります：
+    
+    *   リソースオーナー・パスワード・クレデンシャルズは、エンドユーザーのクレデンシャルをクライアントアプリケーションと共有するアンチパターンを推奨していました
+        
+    *   インプリシットフローは、ブラウザのフロントチャンネルを多く利用し、セキュリティ問題を発生させました
+        
+*   残りの2つの推奨フローは以下のとおりです：
+    
+    *   **認可コードフロー** は、リソースオーナーが存在し、最初に認証をおこない、保護されたリソースへのアクセスをクライアントアプリケーションに委任することに同意する必要があるとき、トークンを取得するための推奨される方式です。このフローはユーザーエージェント、一般的にはユーザーのブラウザ、でのリダイレクトと、最終的にOAuth2のアクセストークンを取得するためにバックチャンネルリクエストを利用します。
+        
+
+> クライアントがアクセストークンを取得することを認可する最初のステップがあり、クライアントが実際にトークンを取得する2つ目のステップがあります。
+> 
+> 現在では、OAuth2認可のセキュリティを強化し、リクエストを開始した正当なクライアントにアクセストークンを渡すために、オリジナルの認可コードフローを更に保護することが推奨されています。この追加の保護はPKCE（Proof Key Code Exchangeの略、「pixie」と発音、[_RFC 7636_](https://www.rfc-editor.org/info/rfc7636)にて定義）と呼ばれ、パブリッククライアントを制御する良いアプローチと考えられています。 [^6]
+
+*   **クライアント・クレデンシャルズ** は、アクセストークンを渡すためだけにクライアントアプリケーションを認証することを目的にしています（この場合、アクセストークンはエンドユーザーのアイデンティティとは関連付けされず、クライアントアプリケーションのアイデンティティだけに関連付けられます）。このフローはアプリケーション間のアクセスに適しています。
+    
+
 @row
 ### **Use the Token**
 
@@ -129,6 +224,20 @@ RFC 6750 describes how an access token should be conveyed to a protected resourc
 *   A GET parameter (aka Query String parameter)
     
 
+@column
+### **トークンを利用する**
+
+このステップでは、保護されたリソースを呼び出すときにアクセストークンを利用することを目的にしています。
+
+RFC 6750は、どのようにアクセストークンを保護されたリソースに伝えるべきかを記述しています。非常に短く要約すると、優先順位の高い順に、トークンは以下のように渡されるべきです：
+
+*   HTTPヘッダにベアラートークンとして（Authorization: Bearer <アクセストークン>）
+    
+*   POSTパラメータ
+    
+*   GETパラメータ（別名クエリ文字列パラメータ）
+    
+
 @row
 ### **Validate the Token**
 
@@ -141,15 +250,37 @@ Finally, the protected resource receiving a token needs to check the token’s v
 
 It is generally recommended to rely on one of those two documents to help with interoperability between the protected resource and the authorization server
 
+@column
+### **トークンを検証する**
+
+最終的に、トークンを受け取った保護されたリソースはトークンの正当性を確認する必要があります。このトークンの正当性は、長い間、どのように実行することを定義する実装に委ねられていました：
+
+*   トークンの形式は指定されておらず、参照トークンとして振る舞うランダムに生成された不透明な文字列から非常に頻繁に見かけるJWT署名値トークン（[RFC 7519](https://www.rfc-editor.org/info/rfc7519)）まで何でもあり得ますが、任意の実装の設計適するものであれば何でもよいのです。 [^7]
+    
+*   RFCに従ってトークンがクライアントにとって不透明な場合、どのように保護されたリソースがトークンを検証すべきかに関する具体的な指示は定義されていません。トークンをどのように検証するかについて、保護されたリソースと認可サーバー間で合意するために、帯域外で仕様のスコープを超えたプロセスに依存します：デジタル署名検証および自己完結型トークン（トークン形式としてJWTを利用するこのアプローチの標準化をおこなっているRFC 9068参照）または認可サーバー（AS）エンドポイント（このアプローチの標準化をおこなっているRFC7662参照）に対する参照トークンのイントロスペクションなど。
+    
+
+一般的に、保護されたリソースと認可サーバーの間の相互運用性を助けるために、これら2つのドキュメントのうち1つに依存することが推奨されます。
+
 @row
 ### **Beyond the Basics**
 
 This section of the article now gives additional details on more aspects of the OAuth2 protocol and additional specification documents.
 
+@column
+### **基本を超える**
+
+現在、本記事のこのセクションはOAuth2プロトコルのより多くの側面と追加の仕様ドキュメントについての追加の詳細情報を提供しています。
+
 @row
 ### **Scopes**
 
 OAuth2 does not allow a client application to access any resource without restriction once it has an access token. An authorization request and, ultimately, the issued token holds a scope (which is a list of space-delimited, case-sensitive strings) that will allow the protected resource to determine if the authorization was indeed given to access it.
+
+@column
+### **スコープ**
+
+OAuth2は、クライアントアプリケーションがひとたびアクセストークンを取得したら無制限にリソースにアクセスできるわけではありません。認可リクエストおよび、最終的に発行されたトークンをスコープ（スペースで区切られた、ケースセンシティブな文字列のリスト）を持ち、本当にアクセスすることを認可されたかを保護されたリソースが判断することができます。
 
 @row
 ### **Get a Token (Also)**
@@ -161,6 +292,18 @@ A few additional ways to obtain an access token were later provided through addi
 *   [_Device flow_](https://www.rfc-editor.org/info/rfc8628) will allow Internet-connected devices to retrieve an access token even if they can’t display a browser or are input-constrained. [^9] This flow will rely on the end-user using another device (e.g., a browser on a smartphone) to complete part of the sequence.
     
 *   [_Token exchange_](https://www.rfc-editor.org/info/rfc8693) will enable an access token to be issued in exchange of any other security token and will provide guidelines to correctly implement delegation or impersonation. [^10]
+    
+
+@column
+### **トークンを取得する（再び）**
+
+アクセストークンを取得するいくつかの追加の方法が、後に追加の仕様で提供されました：
+
+*   [_SAMLプロファイル_](https://www.rfc-editor.org/info/rfc7522)および[_JWTプロファイル_](https://www.rfc-editor.org/info/rfc7523)はそれぞれ、特定のエンドユーザーに発行され、クライアントアプリケーション自身が自身を認証するために作成されたSAMLトークンまたはJWTトークンを引き換えに、アクセストークンを渡すことを可能にします。 [^8]
+    
+*   [_デバイスフロー_](https://www.rfc-editor.org/info/rfc8628)は、インターネット接続されたデバイスがブラウザを表示できなかったり、入力に制限があったりしても、アクセストークンを取得できるようします。 [^9] このフローは、シーケンスの一部を完了させるためｍに他のデバイス（例えば、スマートフォン上のブラウザ）を利用するエンドユーザーに依存します。
+    
+*   [_トークン交換_](https://www.rfc-editor.org/info/rfc8693)は、他のセキュリティトークンと交換にアクセストークンを発行することを可能にし、委任または代行を正しく実装するためのガイドラインを提供します。 [^10]
     
 
 @row
@@ -182,6 +325,25 @@ Access tokens, therefore, can have different characteristics to mitigate those i
 
 OAuth2 also defines the concept of a **refresh token** issued by the Authorization Server and shared with the client app. This refresh token will allow the client app to request a fresh AT (e.g., once it expires) and potentially a refreshed refresh token without having to involve the end-user, for instance. This can be used to maintain a decent UX in a single-page application (SPA) or to allow for offline access when the user is not present anymore, but the client app needs access to the protected resource.
 
+@column
+### **トークン**
+
+ここまで、アクセストークンについてのみ言及してきました。アクセストークンはOAuth2がクライアントアプリケーションに提供する中核のトークンです。このトークンは、一般的にベアラートークン、つまりこのトークンにアクセスできるエンティティは保護されたリソースへのアクセスのためにそのトークンを利用できるということです。この特徴はいくつかのセキュリティ上の懸念があります：
+
+*   保護されたリソースは、現在アクセスを要求しているクライアントアプリケーションが最初にトークンを取得したものと同じであることを確認できません
+    
+*   トークンを生成するために認証が必要だったエンドユーザーが既に存在しない可能性があります
+    
+
+そこで、アクセストークンはこれら懸念に対策するために異なる特徴を持たせることができます：
+
+*   時間制限付きのトークン。仕様ではアクセストークンに限られた生存時間を持たせることが推奨されています。
+    
+*   送信者制限トークン。最近の仕様（_mTLS_ 、 [_DPoP_](https://www.rfc-editor.org/info/rfc9449)など）は、いくつかのメカニズム、一般的にトークンリクエストとトークン利用の両方において暗号鍵による所有の証明をおこない、トークンを鍵マテリアル（例えば、公開鍵の指紋）に関連付けることによってアクセストークンを最初のクライアントアプリケーションにバインドします。 [^11] 結果として、送信者制限トークンはトークンを要求したアプリケーションだけが利用できます。DPoPのようなアプローチでは盗まれたトークンから保護できますが、client\_credentialグラントでのクライアントID/シークレットの盗難からは保護できません。
+    
+
+また、OAuth2は認可サーバーによって発行され、クライアントアプリに共有される **リフレッシュトークン** の概念を定義しています。このリフレッシュトークンは、クライアントアプリが、例えばエンドユーザーの関与なしに新しいアクセストークンをと更新されたリフレッシュトークンを要求する（有効期限が切れたとき等）ことを可能にします。シングルページアプリケーション（SPA）での適切なUXの維持やユーザーが存在しないがクライアントアプリが保護されたリソースへのアクセスする必要がある場合のオフラインアクセスをおこなうために利用されます。
+
 @row
 ### **Discovery**
 
@@ -190,6 +352,16 @@ In order to help clients dynamically register against an authorization server or
 *   Client dynamic registration ( [_RFC 7591_](https://www.rfc-editor.org/info/rfc7591) ) [^12]
     
 *   Authorization Server Metadata ( [_RFC 8414_](https://www.rfc-editor.org/info/rfc8414) ) [^13]
+    
+
+@column
+### **ディスカバリー**
+
+クライアントが動的に認可サーバーに登録することや、認可サーバーの機能とサポートレベルに関する情報をプログラム的に取得するために、一部のディスカバリーおよび動的クライアント登録の仕様も入手できます：
+
+*   動的クライアント登録（ [_RFC 7591_](https://www.rfc-editor.org/info/rfc7591) ） [^12]
+    
+*   認可サーバーメタデータ（ [_RFC 8414_](https://www.rfc-editor.org/info/rfc8414) ） [^13]
     
 
 @row
@@ -215,10 +387,43 @@ OAuth2 is also a foundation upon which other protocols were developed, the most 
 *   [_User-Managed Access 2.0_](https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-grant-2.0.html) is another protocol defined on top of OAuth2 (as a new authorization grant). [^17] It introduces additional tokens, but most importantly, it does introduce a new player in the picture: the **requesting party,** which can be different from the resource owner (in OAuth2, the resource owner is the requesting party).
     
 
+@column
+## **OAuth2を超えて**
+
+ここまででOAuth2の仕様のほとんどを紹介しましたが、それらをナビゲートし、実装が強固でセキュアであることを確認することがどれほど難しいかは簡単に想像できるでしょう。OAuth2ワーキンググループのメンバーはそれを手助けするための追加のドキュメントを作成しています：
+
+*   [RFC 6819](https://www.rfc-editor.org/info/rfc6819) \- OAuth 2.0 Threat Model and Security Considerations [^14]
+    
+*   [_OAuth 2.0 Security Best Current Practice_](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics) （現在ドラフト）
+    
+*   [_OAuth 2.1_](https://datatracker.ietf.org/doc/draft-ietf-oauth-v2-1/) （現在ドラフト）はマイナーですが、セキュリティ上のベストプラクティスを取り込んだ標準仕様の重要な改訂版です。
+    
+*   [RFC 8252](https://www.rfc-editor.org/info/rfc8252) \- OAuth 2.0 for Native Apps for best practices around native application clients on different platforms [^15]
+    
+*   [_OAuth 2.0 for Browser-Based Apps_](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps) （現在ドラフト） for best practices around Single Page Applications
+    
+
+また、OAuth2は他のプロトコルが開発される基盤となっており、その中で最も有名なものはOpenID Connectです。
+
+*   [_OpenID Connect_](https://openid.net/specs/openid-connect-core-1_0.html)は仕様に記述されているとおり、「OAuth 2.0プロトコルの上の単純なアイデンティティレイヤー」です。 [^16] 認可委譲に着目するOAuth2とは対照的に、OIDCは認証に着目しています。OIDCは別のトークン（ **IDトークン** ）を導入しており、これは認可サーバー（もしくはOpenIDプロバイダー）とクライアント（またはリライングパーティ）の間で共有します。このトークンはJWT形式です。このトークンは、標準化されたクレームによって認証されたアイデンティティについての情報と認証自体の情報（認証された時刻、利用されたメソッドなど）について伝達します。
+    
+*   [_User-Managed Access 2.0_](https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-grant-2.0.html)は、（新しい認可グラントとして）OAuth2上に定義された別のプロトコルです。 [^17] 追加のトークンを導入し、最も重要なことは新たなプレイヤーを追加していることです： **Requesting Party** は、リソースオーナーとは異なる可能性があります（OAuth2において、リソースオーナーはRequesting Partyです）。
+    
+
 @row
 ## Additional Reading
 
 For additional information on implementing OAuth2, these resources may be of assistance:
+
+*   Richer, Justin, and Antonio Sanso. 2017. _OAuth 2 in Action_ . Manning.
+    
+*   Parecki, Aaron. 2018. _OAUTH 2.0 Simplified_ . Lulu.com.
+    
+
+@column
+## 追加の読み物
+
+OAuth2を実装するための追加情報として、以下のリソースが助けになるでしょう：
 
 *   Richer, Justin, and Antonio Sanso. 2017. _OAuth 2 in Action_ . Manning.
     
