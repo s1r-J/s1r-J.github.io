@@ -21,6 +21,13 @@ In this section of the BoK, you will explore several conceptual architectures an
 
 Keywords: Identity, Access Management, Architecture, Identity Lifecycle
 
+@column
+## 概要
+
+BoKのこのセクションでは、いくつかの概念アーキテクチャと、それらがどのように企業でIAMソリューションを実現するのかについて探求します。人事システム、Eメールシステム、電話システムまたは企業アプリケーションであれ、それらすべてがIAM環境とのインタフェースを必要とすることから、IAMは組織のIT環境のすべての側面に関与します。ユーザープロビジョニングルールの実施をサポートすることであれ、企業外のユーザーのアクセスを検証することであれ、IAMは常にITオペレーションの効率化とセキュリティ向上の役割を果たします。アーキテクチャアプローチは、一貫性のある包括的なIAMソリューションが達成される可能性を高くします。
+
+Keywords: アイデンティティ, アクセス管理, アーキテクチャ, アイデンティティライフサイクル
+
 @row
 By Andrew Cameron and Graham Williamson
 
@@ -114,6 +121,7 @@ It is the task of an IAM practitioner to ensure that, wherever and whenever iden
 
 There are four levels that the IAM practitioner should consider when developing a solution architecture:
 
+@row
 ![Simple configuration with a Mainframe application accessed from a monitor ](/assets/images/idpro_bok/image1.png)
 
 Figure 1: Generic Enterprise Architecture Framework
@@ -175,6 +183,7 @@ The IAM environment must support the selected patterns and ensure a managed appr
 
 There are few mainframe systems left in service, with notable exceptions in the banking industry and some government installations. The IAM environment will often be required to synchronize to an older data store to support a mainframe system.
 
+@row
 ![Simple configuration with a Mainframe application accessed from a monitor ](/assets/images/idpro_bok/image2.png)
 
 Figure 2: Mainframe application accessed from a monitor
@@ -184,6 +193,7 @@ Figure 2: Mainframe application accessed from a monitor
 
 Client-server environments can present a complex support requirement since many such systems maintain their own identity database to provide fine-grained access control to system functionality. Redevelopment of a client-server application to externalize access control decisions to an authentic authorization server can be a way to harmonize access policies across an organization.
 
+@row
 ![Simple client-server network diagram](/assets/images/idpro_bok/image3.png)
 
 Figure 3: Client application access a backend server
@@ -193,6 +203,7 @@ Figure 3: Client application access a backend server
 
 The most common on-premise application environment these days is an “n-tier” web services infrastructure. While there are many variants, a user accessing the front-end web server will be redirected to an authentication service, usually supporting SSO, with an authentication token passed back to the application in an HTTP header. If the application requires user authentication, the IAM system should set user entitlements as part of the initial provisioning activity when a user joins the organization.
 
+@row
 ![Diagram of client machine connecting through the network to the presentation and application servers as well as the database system.](/assets/images/idpro_bok/image4.png)
 
 Figure 4: Common web-services model
@@ -202,6 +213,7 @@ Figure 4: Common web-services model
 
 Hub and spoke systems are typically only in large transaction processing systems. Often the only IAM touchpoint is access control for DevOps staff via a privileged access management system.
 
+@row
 ![Two client systems connecting through the network to the "ETL" host, which in turn connects to an Internal and an external database](/assets/images/idpro_bok/image5.png)
 
 Figure 5: Common data service configuration
@@ -211,6 +223,7 @@ Figure 5: Common data service configuration
 
 Increasingly remote access to corporate systems must be supported. The authentication server must accommodate the required access control mechanisms, from basic LDAP lookups for password accounts to sophisticated MFA environments capable of elevating authentication levels to suit application security requirements. The provisioning task in such environments requires maintaining one or more identity provider services within the enterprise.
 
+@row
 ![Typical enterprise model providing external, remote devices access to corporate applications via a web application firewall or VPN](/assets/images/idpro_bok/image6.png)
 
 Figure 6: Typical enterprise network access model
@@ -222,10 +235,12 @@ A key indicator of effectiveness in an IAM Architecture is how complexity is man
 
 The hybrid cloud example assumes an existing ‘source of truth’ to which all enterprise users authenticate; this is typically Active Directory. With the Hybrid IAM pattern, authenticated on-premise users will have access to on-premise, public cloud, or other external services that support common identity standards such as OpenID Connect or OAuth.
 
+@row
 ![Hybrid Cloud diagram](/assets/images/idpro_bok/image7.png)
 
 Figure 7: Hybrid Cloud Identity Architecture model
 
+@row
 Table 1: Hybrid IAM Architecture components
 
 | Component | Description |
@@ -278,6 +293,7 @@ IGA systems provide additional functionality beyond standard IAM systems. In par
 
 The business rules that tie these elements together are generally referred to as the identity lifecycle.[^3] In the identity lifecycle, an identity is created that defines who or what (human or non-human) needs access to a protected resource. Every stage of the identity lifecycle sees the activities of the identity managed to ensure business rules are enforced according to the identity and security rules of the enterprise.
 
+@row
 ![A graphic of the Identity Lifecycle, starting with Identity Onboarding, then Identity Management, Account Management, Entitlement Management, and Access Management.](/assets/images/idpro_bok/image8.png)
 
 Figure 8: Identity Lifecycle Categories
@@ -315,10 +331,12 @@ IGA systems generally include the following components for identity administrati
 
 An example of how an IGA solution could support an authentication service is shown in Figure 9 (access management shown for context):
 
+@row
 ![A diagram of IAM architecture components, including the end user who goes through an Access Gateway to the Authentication Services. There is also the administrative user who handles end-user on and off-boarding and administration through the IA service, Account Management Services Entitlement Management Service, and the Enterprise Applications](/assets/images/idpro_bok/image9.png)
 
 Figure 9: IAM Architecture Components
 
+@row
 This architecture supports the following IAM Processes:
 
 Table 2: IAM Processes
@@ -375,10 +393,12 @@ The two most common Access Management services supported in most scenarios are:
 
 An example of a fine-grained authorization environment is shown in Figure 10. The components of the solution combine to control access to corporate resources based on the policies in the Decision Point.
 
+@row
 ![A diagram of the relationship between various Access Management Comonents, including the Policy Enforcement point (PEP), the POlicy Decision Point (PDP), the Policy Access Point (PAP), and the Policy Information Point (PIP). ](/assets/images/idpro_bok/image10.png)
 
 Figure 10: Typical Components of an Authorization Service
 
+@row
 The architecture of an authorization service will typically contain the key elements that are involved in the flow from an actor (person or system) on a device (mobile or desktop) that accesses an application or service (typically over the internet) that resides within an enterprise boundary (behind network firewalls).
 
 Table 3: Policy Control Points
@@ -397,10 +417,12 @@ A well-crafted IAM architecture is able to both improve user experience and incr
 
 When combining these key components in a deployment blueprint (solution configuration), an architecture pattern evolves to support most, if not all, access management needs across the organization.
 
+@row
 ![A diagram of possible access management patterns, taking a user from a client such as a browser or mobile app through a DMZ and into a corporate network.](/assets/images/idpro_bok/image11.png)
 
 Figure 11: Access Management Patterns
 
+@row
 Table 4: Access Management Pattern descriptions
 
 | Pattern | Description |
@@ -416,6 +438,7 @@ No IAM solution architecture is complete without addressing the applicable stand
 
 The key standards that support modern identity and access management today are OIDC, OAuth2, and SAML.[^4]
 
+@row
 ![Logos for OIDC, OAuth, SAML](/assets/images/idpro_bok/image12.png)
 
 Figure 12: Logos for OIDC, OAuth2 , SAML
@@ -432,11 +455,11 @@ An IAM project that takes such an approach will have a significantly better chan
 
 Andrew Cameron
 
-![Photo of author](/assets/images/idpro_bok/image13.jpeg)Andrew Cameron is the Enterprise Architect for Identity and Access Management at General Motors. His responsibilities include Defining the Strategy and Implementation Roadmaps of their IAM technology platform and ensuring the architectural quality of the many initiatives driving the GM digital business.
+<!-- ![Photo of author](/assets/images/idpro_bok/image13.jpeg) -->Andrew Cameron is the Enterprise Architect for Identity and Access Management at General Motors. His responsibilities include Defining the Strategy and Implementation Roadmaps of their IAM technology platform and ensuring the architectural quality of the many initiatives driving the GM digital business.
 
 Graham Williamson
 
-![Photo of author](/assets/images/idpro_bok/image14.jpeg)Graham Williamson is an IAM consultant working with commercial and government organizations for over 20 years with expertise in identity management and access control, enterprise architecture and service-oriented architecture, electronic commerce, and public key infrastructure, as well as ICT strategy development and project management. Graham has undertaken major projects for commercial organizations such as Cathay Pacific in Hong Kong and Sensis in Melbourne, academic institutions in Australia such as Monash University and Griffith University, and government agencies such as Queensland Government CIO’s office and the Northern Territory Government in Australia and the Ministry of Home Affairs in Singapore.
+<!-- ![Photo of author](/assets/images/idpro_bok/image14.jpeg) -->Graham Williamson is an IAM consultant working with commercial and government organizations for over 20 years with expertise in identity management and access control, enterprise architecture and service-oriented architecture, electronic commerce, and public key infrastructure, as well as ICT strategy development and project management. Graham has undertaken major projects for commercial organizations such as Cathay Pacific in Hong Kong and Sensis in Melbourne, academic institutions in Australia such as Monash University and Griffith University, and government agencies such as Queensland Government CIO’s office and the Northern Territory Government in Australia and the Ministry of Home Affairs in Singapore.
 
 @row
 ## Change Log
