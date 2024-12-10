@@ -3,6 +3,7 @@ layout: articles
 title: IDPro Body of Knowledge関連一覧
 permalink: /docs/oidc_oauth/idpro_bok
 date: 2024-09-09
+modify_date: 2024-12-11
 ---
 
 [IDPro® Body of Knowledge](https://idpro.org/body-of-knowledge/)に関連したメモの一覧です。
@@ -44,6 +45,7 @@ date: 2024-09-09
 -  [Impact of GDPR on Identity and Access Management](./24) – Andrew Hindle – 2020-03-31
 -  [An Introduction to GDPR (v3)](./11) – Andrew Cormack – Originally published 2020-03-31; updated 2021-06-30, 2022-09-30
 -  [An Introduction to OAuth 2.0](./99) – Bertrand Carlier – 2023-10-27
+-  [An Introduction to OpenID Connect](./109) – Anoop Gupta – 2024-11-29
 -  [Laws Governing Identity Systems](./8) – Thomas J. Smedinghoff – Originally published 2020-03-31; updated 2021-06-30
 -  [Review – ISO/IEC 24760-1:2019](./18) – Corey Scholefield – 2020-03-31
 -  [Review – ISO/IEC 24760-3:2016](./39) – Espen Bago – 2021-06-17
@@ -73,6 +75,7 @@ date: 2024-09-09
 - [Identifiers and Usernames](./16) – Ian Glazer – 2020-03-31
 - [A Peek into the Future of Decentralized Identity (v2)](./51) – Leo Sorokin – Originally published 2020-10-31; updated 2022-02-28
 - [Practical Implications of Public Key Infrastructure for Identity Professionals (v2)](./80) – Robert Sherwood – Originally published 2021-09-30; updated 2022-12-16
+- [Token Lifetimes and Security in OAuth 2.0: Best Practices and Emerging Trends](./108) – Heather Flanagan – 2024-11-29
 
 ## Non-Human Entities
 

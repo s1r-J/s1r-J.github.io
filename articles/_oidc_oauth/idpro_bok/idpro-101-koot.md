@@ -3,6 +3,7 @@ layout: columns
 title: Introduction to Privileged Access Management
 permalink: /docs/oidc_oauth/idpro_bok/101
 date: 2024-09-09
+modify_date: 2024-12-11
 aside:
   toc: true
 tags: ["IDPro", "IDPro BoK"]
@@ -385,6 +386,15 @@ Once an organization introduces PAM tools, do not underestimate the impact of cu
     
 
 @row
+## Appendix: A Note on Entra ID
+
+The IDPro Body of Knowledge is an independent source of information and the authors do not endorse any specific product or vendor. With that said, we do acknowledge that guidance related to widely adopted products can be useful to practitioners.
+
+One of these products is Microsoft’s Entra ID, formerly Azure AD. This is an Identity and Access Management solution that runs on the Azure cloud platform. It is used to manage digital identities and authorization in cloud environments using modern federation protocols like OAuth2.0, SAML, and OpenID Connect. Given its role in access control, Microsoft added extensive authorization profiles to secure access to Entra ID and Azure administrative functions. This is called “Privileged Identity Management” (PIM).
+
+With features like just-in-time access and role-based approval workflows, one could argue that PIM is a PAM solution. This article will not weigh the benefits of PIM versus a dedicated PAM solution in general. However, when an organization works on primarily on Azure and has a compatible license,[^12] PIM offers a core element of its security strategy. When other platforms and on-premises systems are present, a supplementary or alternative PAM solution may make sense.
+
+@row
 ## Author Bio
 
 André Koot has over 25 years of experience in the field of IAM, and he is a principal consultant and co-founder of SonicBee, a Dutch IAM consultancy company (IDPro partner). André is focused on business consultancy and gives IAM training courses aligned with the BoK. He is also a member of the IDPro BoK committee and (co-) authored several articles in the BoK.
@@ -437,3 +447,5 @@ Reviewers
 [^10]:  Koot, A., (2023) “The Business Case for IAM”, _IDPro Body of Knowledge_ 1(12). doi: [https://doi.org/10.55621/idpro.97](https://doi.org/10.55621/idpro.97) 
     
 [^11]:  And as a side note: storage of recordings could lead to capacity issues. 
+
+[^12]:  At the time of writing this includes Premium P2, 365 E5, or EMS (E5)
