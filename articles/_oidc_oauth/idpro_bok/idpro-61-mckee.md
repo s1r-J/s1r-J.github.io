@@ -3,6 +3,7 @@ layout: columns
 title: Introduction to Policy-Based Access Controls (v3)
 permalink: /docs/oidc_oauth/idpro_bok/61
 date: 2024-09-09
+modify_date: 2024-12-14
 aside:
   toc: true
 tags: ["IDPro", "IDPro BoK", "アクセス制御", "PBAC"]
