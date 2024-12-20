@@ -67,6 +67,7 @@ modify_date: 2024-12-11
 - [Introduction to Privileged Access Management](./16) – André Koot – 2024-03-15
 - [Strategic Alignment and Access Governance](./51) – André Koot – 2022-12-16
 - [Techniques To Approach Least Privilege](./80) – Matthew K. Carter – 2022-09-30
+- [Token Lifetimes and Security in OAuth 2.0: Best Practices and Emerging Trends](./108) – Heather Flanagan – 2024-11-29
 
 ## Digital Identity
 
@@ -75,7 +76,6 @@ modify_date: 2024-12-11
 - [Identifiers and Usernames](./16) – Ian Glazer – 2020-03-31
 - [A Peek into the Future of Decentralized Identity (v2)](./51) – Leo Sorokin – Originally published 2020-10-31; updated 2022-02-28
 - [Practical Implications of Public Key Infrastructure for Identity Professionals (v2)](./80) – Robert Sherwood – Originally published 2021-09-30; updated 2022-12-16
-- [Token Lifetimes and Security in OAuth 2.0: Best Practices and Emerging Trends](./108) – Heather Flanagan – 2024-11-29
 
 ## Non-Human Entities
 
