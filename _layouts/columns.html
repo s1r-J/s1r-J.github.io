@@ -9,7 +9,7 @@ type: article
 
     {% assign columns = row | split:"@column" %}
     {% for column in columns %}
-      <div class="cell cell--12 cell--md-{{ 12 | divided_by:forloop.length }}">
+      <div class="cell cell--12 cell--md-{{ 12 | divided_by:forloop.length }}" style="padding-right: 0.5rem; padding-left: 0.5rem;">
         {{ column }}
       </div>
     {% endfor %}
