@@ -3,9 +3,10 @@ layout: columns
 title: Practical Implications of Public Key Infrastructure for Identity Professionals (v2)
 permalink: /docs/oidc_oauth/idpro_bok/80
 date: 2024-09-09
+modify_date: 2024-12-28
 aside:
   toc: true
-tags: ["IDPro", "IDPro BoK"]
+tags: ["IDPro", "IDPro BoK", "PKI", "公開鍵基盤", "暗号化"]
 ---
 
 IDPro Body of Knowledgeの翻訳メモです。
