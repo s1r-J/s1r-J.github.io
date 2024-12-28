@@ -383,14 +383,6 @@ In asymmetric cryptography, “ _encryption”_ refers to scrambling data with t
 
 In practice, signature and encryption are much more complicated, involving cryptographic hashes or intermediate symmetric keys. For our purposes, it is sufficient to understand that private keys sign and public keys encrypt.
 
-![Illustration of Encryption and Signature path for a document](PKI.jpg)
-
-Despite the widespread use of PKI for highly secure credentials, asymmetric cryptography does not directly provide authentication! Authentication protocols that leverage PKI credentials depend on signature or encryption.
-
-In public-key authentication schemes, the user is whoever has control of the private key. When a system wishes to authenticate a private key owner, it requires them to use the private key they own. The user can sign something with the private key that the system can verify with the public key or decrypt something with the private key that the system encrypts with the public key.
-
-The user can provide a signed message for the authenticating system to verify, or the authenticating system can generate and encrypt data that the user can only decrypt with their private key. In both scenarios, possession of the private key, demonstrated by the ability to use the private key to decrypt or sign data, proves the user's identity.
-
 @column
 #### 公開鍵と秘密鍵
 
@@ -412,8 +404,17 @@ PKIの基礎となる前提は、認可されたユーザーだけが秘密鍵�
 
 実際には、署名と暗号化はもっと複雑で、暗号ハッシュまたは中間共有鍵を含みます。本書の目的では、秘密鍵が署名をおこない、公開鍵が暗号化をおこなうという理解で充分です。
 
+@row
 ![Illustration of Encryption and Signature path for a document](PKI.jpg)
 
+@row
+Despite the widespread use of PKI for highly secure credentials, asymmetric cryptography does not directly provide authentication! Authentication protocols that leverage PKI credentials depend on signature or encryption.
+
+In public-key authentication schemes, the user is whoever has control of the private key. When a system wishes to authenticate a private key owner, it requires them to use the private key they own. The user can sign something with the private key that the system can verify with the public key or decrypt something with the private key that the system encrypts with the public key.
+
+The user can provide a signed message for the authenticating system to verify, or the authenticating system can generate and encrypt data that the user can only decrypt with their private key. In both scenarios, possession of the private key, demonstrated by the ability to use the private key to decrypt or sign data, proves the user's identity.
+
+@column
 高セキュリティクレデンシャルのためのPKIが幅広く利用されているにも関わらず、非対称暗号は直接的に認証を提供することはありません。PKIクレデンシャルを活用する認証プロトコルは、署名または暗号化に依存しています。
 
 公開鍵認証スキームにおいて、ユーザーはだれでも秘密鍵の制御をおこないます。システムが秘密鍵所有者を認証したい場合、所有者自身が持っている秘密鍵の利用を要求します。ユーザーは秘密鍵によって何かに署名し、システムは公開鍵によって検証またはシステムが公開鍵によって暗号化した未必鍵によって何かを復号します。
@@ -445,12 +446,6 @@ information. For authentication purposes, the following three fields are the mos
 
 between the key and the identifier.
 
-![Left, key components of a PKI certificate that support Identity. ](/assets/images/idpro_bok/80-image1.png) ![Right, a detailed listing of several possible elements of a PKI certificate.](/assets/images/idpro_bok/80-image2.png)
-
-Figures 1 and 2: Key components of a PKI certificate that support identity including Name, key, metadata, signature algorithm, and signature. Additionally, a detailed listing of several possible elements of a PKI certificate.
-
-A public key certificate is a file with a prescribed structure defined by the X.509 v3 standard and refined by RFC 5280. It contains the user's public key, their identifiers, and important metadata about the certificate itself. [^6] The file is digitally signed using the private key of a trusted third party, called a "Certificate Authority."
-
 @column
 #### 公開鍵証明書
 
@@ -472,10 +467,15 @@ _公開鍵証明書_ はいくつかの重要な情報の断片が含まれま�
 
 - 鍵と識別子の紐付けを保証する「信頼された第三者」に関する情報
 
-![Left, key components of a PKI certificate that support Identity. ](image1.png) ![Right, a detailed listing of several possible elements of a PKI certificate.](image2.png)
+@row
+![Left, key components of a PKI certificate that support Identity. ](/assets/images/idpro_bok/80-image1.png) ![Right, a detailed listing of several possible elements of a PKI certificate.](/assets/images/idpro_bok/80-image2.png)
 
 Figures 1 and 2: Key components of a PKI certificate that support identity including Name, key, metadata, signature algorithm, and signature. Additionally, a detailed listing of several possible elements of a PKI certificate.
 
+@row
+A public key certificate is a file with a prescribed structure defined by the X.509 v3 standard and refined by RFC 5280. It contains the user's public key, their identifiers, and important metadata about the certificate itself. [^6] The file is digitally signed using the private key of a trusted third party, called a "Certificate Authority."
+
+@column
 公開鍵証明書は、X.509 v3標準仕様によって定義され、RFC 5280によって洗練された所定の構造を持つファイルです。公開鍵証明書はユーザーの公開鍵、その識別子および証明書自体の重要なメタデータを含みます。 [^6] このファイルは「認証局」と呼ばれる信頼された第三者の秘密鍵を使ってデジタル署名されています。
 
 @row
