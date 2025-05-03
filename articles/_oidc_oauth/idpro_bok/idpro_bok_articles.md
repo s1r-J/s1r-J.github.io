@@ -64,7 +64,7 @@ modify_date: 2024-12-11
 
 - [Introduction to Access Control (v4)](./42) – André Koot – Originally published 2020-06-18; updated 2021-09-30, 2022-12-16
 - [Introduction to Policy-Based Access Controls (v3)](./61) – Mary McKee – Originally published 2021-04-19; updated 2022-06-03, 2023-10-27
-- [Introduction to Privileged Access Management](./16) – André Koot – 2024-03-15
+- [Introduction to Privileged Access Management (v2)](./101) – André Koot – 2024-03-15; updated 2024-11-29
 - [Strategic Alignment and Access Governance](./51) – André Koot – 2022-12-16
 - [Techniques To Approach Least Privilege](./80) – Matthew K. Carter – 2022-09-30
 - [Token Lifetimes and Security in OAuth 2.0: Best Practices and Emerging Trends](./108) – Heather Flanagan – 2024-11-29
