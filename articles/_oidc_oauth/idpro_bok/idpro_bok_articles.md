@@ -37,16 +37,21 @@ modify_date: 2024-12-11
 
 ## Workforce IAM
 
+- [Authentication Methods](./113) – Anna Cherkasov and Bailey Bercik – 2025-04-23
+- [Optimizing Access Recertifications](./119) – Vatsal Gupta – 2025-04-23
 - [An Overview of the Digital Identity Lifecycle (v2)](./31) – Andrew Cameron and Olaf Grewe – Originally published 2020-10-31; updated 2022-02-28
 - [User Provisioning in the Enterprise](./84) – Ian Glazer, Lori Robinson, Mat Hamlin – 2022-06-03
 
 ## Standards, Regulations, and Laws
 
+- [HIPAA Security Rule Updates & IAM Compliance Recommendations](./120)
+ –  Sharon Chahal and Hanita Epstein – 2025-04-23
 -  [Impact of GDPR on Identity and Access Management](./24) – Andrew Hindle – 2020-03-31
 -  [An Introduction to GDPR (v3)](./11) – Andrew Cormack – Originally published 2020-03-31; updated 2021-06-30, 2022-09-30
 -  [An Introduction to OAuth 2.0](./99) – Bertrand Carlier – 2023-10-27
 -  [An Introduction to OpenID Connect](./109) – Anoop Gupta – 2024-11-29
 -  [Laws Governing Identity Systems](./8) – Thomas J. Smedinghoff – Originally published 2020-03-31; updated 2021-06-30
+- [PKCE: Proof Key for Code Exchange](./123) – Rusty Deaton – 2025-04-23
 -  [Review – ISO/IEC 24760-1:2019](./18) – Corey Scholefield – 2020-03-31
 -  [Review – ISO/IEC 24760-3:2016](./39) – Espen Bago – 2021-06-17
 -  [Review – ISO/IEC 24760-2:2015](./30) – George B. Dobbs – 2020 -06-18
