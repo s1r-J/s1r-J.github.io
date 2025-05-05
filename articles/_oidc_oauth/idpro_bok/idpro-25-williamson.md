@@ -3,9 +3,10 @@ layout: columns
 title: Introduction to Project Management for IAM Projects (v3)
 permalink: /docs/oidc_oauth/idpro_bok/25
 date: 2024-09-09
+modify_date: 2025-05-05
 aside:
   toc: true
-tags: ["IDPro", "IDPro BoK"]
+tags: ["IDPro", "IDPro BoK", "ガントチャート", "プロジェクト管理", "アジャイル"]
 ---
 
 IDPro Body of Knowledgeの翻訳メモです。
@@ -21,6 +22,13 @@ This article serves as an introduction to the practice of project management for
 
 Keywords: Gantt chart, Project Management, Agile
 
+@column
+## 概要
+
+この記事は、IAMプロジェクトのプロジェクトのマネジメントのプラクティスの入門であり、基本的なプロジェクト管理の用語解説とプラクティスについて説明しています。IAMプロジェクトは一般的に影響を与えるシステムが多いため、関係者にとって優れたプロジェクト管理が不可欠です。
+
+Keywords: ガントチャート, プロジェクト管理, アジャイル
+
 @row
 By Graham Williamson, Corey Scholefield
 
@@ -34,6 +42,13 @@ _Please visit our [GitHub repository](https://github.com/IDPros/bok) to [submit 
 IAM practitioners may be familiar with the scenario of an IAM project proceeding under the control of an IT systems group without a formal project manager. While this method of deploying a new product or service may be considered an expedient way to get a system installed or updated, it is likely to cost the organization more money in the long term. An IAM service is connected to many critical systems within an organization. Making changes to that service without considering the possible impact on the various connected systems, managing the required resources, or keeping all stakeholders advised of the effort will almost certainly result in a substandard deployment.
 
 Project management has a cost: typically between 5-10% of a project's total expenditure, but it represents the best return compared to any other investment an organization is likely to be afforded.
+
+@column
+## プロジェクトマネジメントの重要性
+
+IAMの実務者は、正式なプロジェクトマネージャーを置かずにITシステムグループの管理下でIAMプロジェクトを進めるというシナリオに慣れているかもしれません。新製品やサービスをデプロイするこの方法は、システムをインストールまたは更新するために便利な方法と考えられるかもしれませんが、長期的には組織のコストが高くなる可能性があります。IAMサービスは、組織内の多くの重要なシステムに接続されています。接続されている様々なシステムへの影響の可能性を考慮せず、必要なリソースを管理せず、すべての利害関係者にその取り組みを知らせずに、IAMサービスを変更すると、ほぼ間違いなく標準以下のデプロイとなります。
+
+プロジェクト管理にはコストがかかります：通常、プロジェクトの総支出の5～10%程度ですが、組織が受けられる可能性のある他の投資と比較すると最高のリターンが得られます。
 
 @row
 ### Terminology
@@ -54,6 +69,26 @@ Project management has a cost: typically between 5-10% of a project's total expe
     
 
 Readers interested in pursuing information on project management should review the Project Management Institute (PMI) Framework and the PMI Body of Knowledge for further information. [^2]
+
+@column
+### 用語解説
+
+*   プロジェクト - 定義された成果を達成するための期間限定の活動
+    
+*   プロジェクト憲章 - プロジェクトマネージャーがプロジェクトを進めるための権限を文書化したもの；通常、プロジェクトの目的を簡潔に記述した文章が含まれます。
+    
+*   スケジュール - 計画された成果物と結果を達成するために必要な活動とリソースを定義した文書
+    
+*   ガントチャート - 活動と時間枠の両方を1つのチャートに表示する人気のスケジュール形式
+    
+*   プロジェクト計画 - プロジェクトを説明する文書；通常、スコープステートメント、スケジュール、リソース計画、コミュニケーション計画および品質計画が含まれます
+    
+*   タスク - 定義された活動の最低レベル；通常、複数のタスクはステージまたはプロジェクトフェーズにグループ化されます
+    
+*   アジャイルプロジェクト管理 - 継続的で反復的なプロセスを使用して定義済みの機能、通常は製品またはサービスのコンポーネントを提供するフレームワーク。スクラムは人気のあるフレームワークです。 [^1]
+    
+
+プロジェクト管理に関する情報を追求することに関心のある読者は、プロジェクト管理協会（PMI）フレームワークとPMI Body of Knowledgeで詳細情報を確認してください。 [^2]
 
 @row
 ### Characteristics of a Project Manager
@@ -80,6 +115,31 @@ Project managers require competence in the five components of project management
 *   Controlling
     
 
+@column
+### プロジェクトマネージャーの特徴
+
+IT部門では、プロジェクトマネージャーはスタッフやプロジェクトの利害関係者に対してほとんど権限を持たないことがよくあります。彼らは上層部からの支援を最小限に抑え、組織内での可視性を最小限に抑えて、プロジェクトを予定どおりに予算内に収めることが期待されています。実際には、プロジェクトマネージャーには、プロジェクトを適切に監視および管理するための十分な権限とリソースが必要です。また、リソースを割り当て障害を取り除くために必要な権限を持つ上層部の代表者で構成される運営委員会との定期的な連絡も必要です。
+
+プロジェクトマネージャーには、次の2つの主要な特性が不可欠です：
+
+|     |     |
+| --- | --- |
+| 予測可能性 | 経営陣は驚きが好きではありません。したがって、プロジェクトマネージャーは、プロジェクトの期間と関連するコストを、定義された信頼度で決定し、報告するべきです。 |
+| 柔軟性 | プロジェクトマネージャーが承認されたガントチャートに執拗に従い、変更を望む人が不利益を被る時代は終わりました。最近のITプロジェクトでは通常、スコープの変更、他のプロジェクトへの依存関係およびリソースの可用性の変化に対応するために、実行中にいくつかのベースラインの変更がおこなわれます。 |
+
+プロジェクトマネージャーは、プロジェクト管理の5つのコンポーネントの能力を必要とします：
+
+*   計画
+    
+*   組織化
+    
+*   リソース管理
+    
+*   方針指導
+    
+*   コントロール
+    
+
 @row
 ## PMI Framework
 
@@ -89,6 +149,16 @@ Projects are not unexpected; something will instigate the need for a project. Be
 
 Between the commencement and completion of a project, there are discrete stages that comprise the project work. It is not until after project completion that the deliverable will enter an operational status and become business as usual.
 
+@column
+## PMIフレームワーク
+
+定義によれば、プロジェクトには期限があります；プロジェクトには開始と終了がなければなりません。大規模なアップグレードをおこなう場合、多大なリソースと利害関係者の調整が必要であれば、プロジェクト作業となる可能性があります。運用や定期的なメンテナンスはプロジェクトではなく、プロジェクトマネージャーのスキルも必要ありません。
+
+プロジェクトは予期せぬものではありません；何かがきっかけとなってプロジェクトの必要性が生じます。プロジェクトが始まる前、プロジェクトのコンセプトやスコープを定義するための準備作業があります。
+
+プロジェクトの開始から完了までの間に、プロジェクト作業を構成する個別の段階があります。成果物が運用状態に入り、通常通りの業務になるのは、プロジェクト完了後です。
+
+@row
 ![Diagram showing the basic project lifecycle, from Concept to Planning to Execution to Operations. ](/assets/images/idpro_bok/PM-figure1.png)
 
 Figure - The Project Lifecycle
@@ -97,6 +167,11 @@ Figure - The Project Lifecycle
 ### Concept
 
 Projects come out of a need. In the IAM world, examples of such a need include reducing costs and improving security by using identity information more effectively for onboarding and offboarding staff or a need for an enterprise LDAP directory upgrade. Such projects are typically initiated by an IT resource rather than a business resource, though a line-of-business resource might also initiate a project (e.g., to move an application from an on-premises environment to the cloud to save capital expenditure budget). The project sponsor will communicate the requirement, set the project charter, and evaluate the required activity's cost and duration. The sponsor will typically fund this stage and then engage a project manager to complete the planning stage.
+
+@column
+### 概念
+
+プロジェクトはニーズから生まれます。IAMの世界ではこのようなニーズの例として、スタッフのオンボーディングとオフボーディングにアイデンティティ情報をより効果的に使用することによるコストの削減とセキュリティの向上や、エンタープライズLDAPディレクトリのアップグレードなどが挙げられます。このようなプロジェクトは、通常、ビジネスリソースではなくITリソースによって開始されますが、ビジネス部門のリソースがプロジェクトを開始することもあります（たとえば、資本支出予算を節約するために、アプリケーションをオンプレミス環境からクラウドに移行する場合など）。プロジェクトスポンサーは要件を伝え、プロジェクト憲章を設定し、必要な活動のコストと期間を評価します。通常、スポンサーはこの段階で資金を調達し、その後、プロジェクトマネージャーを起用して計画段階を完了させます。
 
 @row
 ### Planning Stage
@@ -120,10 +195,37 @@ At the end of the planning stage, there should be a good understanding of the pr
 
 In terms of time and money, this understanding of project costs allows the organization to make an informed decision as to whether they want to dedicate the necessary resources to a project. A decision not to proceed with a project is as successful an outcome for a project manager as a decision to proceed. It means that the organization has been spared the expenditure of resourcing a project that might otherwise have proceeded, only to be prematurely terminated when the costs blow out, resulting in associated sunk costs.
 
+@column
+### 計画段階
+
+プロジェクトの進行が承認されると、プロジェクトマネージャーはステークホルダーと協力して、プロジェクトのスコープを定義します。IAMプロジェクトのスコープを明確にすることは、プロジェクトの成功に不可欠です。IAMは企業内のほぼすべてのアプリケーションに関わり、サイバーセキュリティ保護プロセスの中核であるため、慎重に管理しなければ、スコープが当初の意図と予算を超えて急速に拡大する可能性があります。関連する各アプリケーションの1人以上の代表者が参加する必要があるため、プロジェクトスコープによって利害関係者も定義されます。例えば、財務管理アプリケーションをIAMシステムに統合する場合、財務部門の代表者をプロジェクトの利害関係者として参加させなければなりません。
+
+Active Directoryのレコードと電子メールアカウントの確立など、当初はスタッフのプロビジョニングのためのアイデンティティ管理パッケージの導入に重点を置いていたプロジェクトが、企業アプリケーションへのプロビジョニングを含めるように要求されることがあります。あるいは、コーポレートガバナンスの担当者が、定期的な認証レポートや再認定などの追加機能を要求するかもしれません。プロジェクトマネージャーは、適切な利害関係者が関与し、インプットの要求に応じるようにしなければなりません。プロジェクトマネージャーは、要求された機能が含まれるべきかを決定しません；その決定は、運営委員会またはプロジェクトスポンサーを通じておこなわれ、プロジェクトの全スコープが定義された時点で見直されます。
+
+スコープが決まったら、プロジェクトマネージャーは専門家を交えて必要な作業を数値化し、プロジェクトの予算とスケジュールを組み立てます。計画段階では、以下のようなプロジェクト計画を策定します:
+
+|     |     |
+| --- | --- |
+| スケジュール | コストを算出するために、スケジュールはプロジェクトに必要な機関とリソースを定義します。古典的なプロジェクトマネジメントでは、スケジュールは一般的にガントチャートで表現されます。アジャイルプロジェクトマネジメントでも、ハイレベルなガントチャートが役に立ちます。 |
+| ステークホルダー分析 | プロジェクトマネージャーは、プロジェクトのステークホルダーのリストを作成します。このリストには、スポンサー、財務マネージャー、人事（HR）マネージャー、システムオーナー、プロジェクトに携わるITグループの代表者などが含まれるのが一般的です。 |
+| リソース計画 | プロジェクトマネジメントの基本的な考え方として、望んでいるリソースは絶対に確保できないということです；望んでいるリソースは通常、他の活動に完全に従事しています。プロジェクトマネージャーは、適切なステークホルダーと交渉して、望むリソースを割り当て、それに応じてプロジェクトのスケジュールを変更しなければなりません。 |
+| コミュニーケーション計画 | プロジェクトコミュニケーション計画では、プロジェクトマネージャーがプロジェクトの進捗を「誰に」「どのように」報告するのかを定義します。プロジェクトチームは、プロジェクト用のファイルフォルダ、Wiki、またはSharePointのサイトを持つことになるでしょう。プロジェクトマネージャーは、ステークホルダーに定期的にプロジェクトレポートをメールし、プロジェクトのレビューミーティングの前にミーティングの議題とステータスのサマリーを運営委員会に送信します。プロジェクト計画には、ステークホルダーとプロジェクトチーム内のすべてのコミュニケーションを記録するコミュニケーションレジスターを含めるべきです。 |
+| 品質管理 | プロジェクトの成果物において適切な品質を確保するためのメカニズムを定義する必要があります。このメカニズムには、プロジェクト文書のマネジメントレビューや、適切に構築されたテストおよびリリース手順を含むべきです。 |
+| リスクマネジメント | プロジェクトマネージャーは、予想されるリスクを特定し、確率と影響の観点から定量化し、適切なリスク軽減活動を含むリスクレジスターを構築します。 |
+
+計画段階の最後では、プロジェクトの活動、期間およびコストを十分に理解するべきです。通常、プロジェクトのコストと期間は10%以内ののマージンがあります。
+
+時間とお金の面では、このようにプロジェクトのコストを理解することで、組織が必要なリソースをプロジェクトに専念させたいかどうかについて十分な情報に基づいた決定を下すことができます。プロジェクトを続行しないという決定は、プロジェクトマネージャーにとっては、続行するという決定と同じくらい成功した成果です。これは、コストが吹き飛んで早々に打ち切られ、関連するサンクコストが発生するだけだった本来であれば進められていたはずのプロジェクトにリソースを投入する費用を、組織が節約できたことを意味します。
+
 @row
 ### Deployment Stage
 
 The project deployment stage will vary depending on how the project is managed: via a classic (waterfall) mechanism or an Agile project management approach.
+
+@column
+### デプロイ段階
+
+プロジェクトのデプロイ段階は、プロジェクトの管理方法、つまり古典的な（ウォーターフォール）の仕組みまたはアジャイルプロジェクトアプローチによって変わります。
 
 @row
 #### Classic
@@ -142,6 +244,23 @@ The components of a classically managed project are:
 | Deliverable acceptance | Each project deliverable should be formally accepted. This acceptance will typically involve the appropriate stakeholder(s) who must agree that the deliverable has been produced to an adequate quality level. |
 | Project closure | A project should always include a proper project closure procedure. This procedure will typically involve a formal project review that will document the activities that went well and any learnings from the project. "Those who don't learn from history are doomed to repeat it." |
 
+@column
+#### 古典的
+
+古典的なプロジェクト管理では、プロジェクトマネージャーはすべての個々のタスク、割り当てられたリソースおよび期間を示す詳細なスケジュールに従って、すべてのプロジェクト活動を管理します。また、定期的なプロジェクトチームミーティングをスケジュールして、スケジュールに対するプロジェクトの進捗状況を確認し、解決のために運営委員会にエスカレーションする障害を記載します。
+
+運営委員会の会議で、委員会はプロジェクトの成果物を正式に受け入れ、フェーズを承認し、プロジェクトマネージャーが特定した問題や障害を解決します。また、プロジェクトマネージャーは運営委員会の承認なしに、プロジェクトのスコープ、スケジュールまたは予算を拡張することはできません。
+
+古典的に管理されているプロジェクトのコンポーネントは：
+
+|     |     |
+| --- | --- |
+| チームミーティング | プロジェクトチームは、定期的に（毎週または隔週で）進捗確認ミーティングを開催すべきです。このミーティングでは、全員がガントチャートに対する進捗をマークし、もし問題があれば運営委員会にエスカレーションする必要があることを決定することができます。 |
+| 運営委員会 | プロジェクトマネージャーは、プロジェクトスケジュールの進捗状況を確認し、チームが認識した問題点に対処するために、定期的に運営委員会に報告します。プロジェクト状況報告には、前回の会議以降の進捗状況、運営委員会で解決すべき問題点、次期の活動計画などを記載します。 |
+| フェーズの遷移 | プロジェクトのスケジュール（ガントチャート）には、プロジェクトのフェーズが表示されます。各フェーズ終了時に、運営委員会でそのフェーズの成果物を確認し、フェーズ移行が承認されるかどうかを判断します。 |
+| 成果物受入 | プロジェクトの各成果物は、正式に受け入れられるべきです。この受入には、通常、適切なステークホルダーが関与し、成果物が適切な品質レベルで作成されたことに合意しなければなりません。 |
+| プロジェクト終了 | プロジェクトには、常に適切なプロジェクト終了手順があるべきです。通常、この手順では正式なプロジェクトレビューが含まれ、うまくいった活動やプロジェクトからの学びを文書化します。「歴史から学ばない者は、それを繰り返す運命にある。」 |
+
 @row
 #### Agile
 
@@ -156,6 +275,20 @@ Agile methodology divides a project into ‘scrums’ that are then further divi
 | Deliverable acceptance | One area that can suffer when using an Agile project management approach is reviewing and accepting deliverables. Acceptance testing will verify that the requirements established for a viable product have been achieved and are demonstrable. A sprint team sometimes advises on completing a piece of work and moves to the next without formal acceptance of the deliverable. A mechanism to record the acceptance of a module or deliverable is needed. |
 | Project closure | A team meeting can be dedicated to the requisite project review in a classically managed project. It is sometimes difficult to manage the project closure in an Agile project, in which many participants have contributed to the outcome. In either project management model, a mechanism is required for all participants to agree that a project has been completed and that the resources used can be reassigned. |
 
+@column
+#### アジャイル
+
+多くの組織は現在、古典的なプロジェクト管理アプローチのコストを保証しない小規模なプロジェクトにアジャイルプロジェクト管理を採用しています。一般的にこれらのプロジェクトは、通常の運用スタッフの能力を超える活動です。例えば、大幅なアップグレードやクラウドサービスへの移行には、システムの停止や時間外カットオーバーアクティビティが必要になる可能性があります。このようなプロジェクト作業の実行は管理されなければなりません。アジャイルプロジェクト管理により、運営委員会の承認を待たずに、適切な利害関係者が関与し、問題が迅速に対処されます。
+
+アジャイル方法論は、プロジェクトを「スクラム」に分け、さらに「スプリント」に分けます。スプリントを構成する各アクティビティは、プロジェクトウォールにタイルに貼られ、「To Do」アクティビティリストから「In Progress」、そして「Done」に移します。「スタンドアップ」と呼ばれることもあるレビューミーティングはを数日おきに開催し、現在のアクティビティをレビューし、問題や傷害があれば文書化します。
+
+|     |     |
+| --- | --- |
+| プロジェクトウォール | アジャイルプロジェクト管理の本質は可視性です。プロジェクトウォールは、プロジェクトチームが完了、進行中、待機中のタスクとリソース割り当てを閲覧できる物理的または仮想的な場所を提供します。 |
+| スプリント＆スクラム | これらの用語は、文脈に応じて使われ方が異なります。スクラムはイテレーティブなプロセスを使用して定義された機能を提供するフレームワークです。これは、製品、サービスまたは既存の製品の新しい機能（DBMSコネクタをIAM環境にデプロイするなど）である可能性があります。スプリントは通常、スクラムコンポーネント、スクラム成果物に貢献する期間限定のアクティビティ（レポートモジュールの開発に30日など）を表します。 |
+| 成果物受入 | アジャイルプロジェクト管理アプローチを使用するときに苦しむ可能性がある領域の1つは、成果物のレビューと受入です。受入テストでは、実用最小限の製品に対して確立された要件が達成され、実証可能であることを検証します。スプリントチームは、成果物を正式に受け入れることなく、作業の完了についてアドバイスし、次の作業に移動する場合があります。モジュールまたは成果物の受入を記録するメカニズムが必要です。 |
+| プロジェクト終了 | チームミーティングは、古典的に管理されたプロジェクトで必要なプロジェクトレビュー専用にすることができます。多くの参加者が結果に貢献しているアジャイルプロジェクトでは、プロジェクトの終了を管理することが難しい場合があります。どちらのプロジェクト管理モデルでも、すべての参加者がプロジェクトが完了し、使用されたリソースを再割り当てできることに同意するためのメカニズムが必要です。 |
+
 @row
 ## PMO Issues
 
@@ -165,11 +298,27 @@ One of the benefits of a PMO is the visibility it gives to projects within an or
 
 A PMO provides the opportunity to educate project managers on identity issues and to insert IAM requirements into IT projects within an organization. A project manager will use the PMO framework to:
 
-[^1]:  manage the project through the project gates;
+1.  manage the project through the project gates;
     
-[^2]:  communicate the project's progress to the organization's management;
+2.  communicate the project's progress to the organization's management;
     
-[^3]:  gain acceptance within the organization that the project goals were achieved within the approved budget and schedule.
+3.  gain acceptance within the organization that the project goals were achieved within the approved budget and schedule.
+    
+
+@column
+## PMOの仕事
+
+プロジェクトマネジメントオフィス（PMO）を持つ大規模な組織では、IAMプロジェクトは会社の手続きに従わなければなりません。通常、PMOにはすべてのプロジェクトが通過しなければならないゲーティング要素または「ゲート」と呼ばれるものが定義されています。例えば、通常、プロジェクト承認ゲートがあり、適切な管理者がプロジェクト計画をレビューし、承認を示します。通常、リソースの割り当てを承認するための予算審査という形のゲートがあります。同様に、ソリューションアーキテクチャを承認するために、アーキテクチャレビューの形でゲートがあるかもしれません。最後に、プロジェクトに必要なゲートとして、ガバナンスの成果をレビューすべきです。PMOはこれらすべての活動を指揮すべきです。
+
+PMOの利点の1つは、組織内のプロジェクトに可視性を与えることです。この可視性はIAMチームにとって有益です；IAMチームは、アイデンティティコンポーネントを持つプロジェクトを適切に識別され、適切な作業プログラムに適合するようにできます。たとえば、認証ゲートウェイをインストールする場合、開発中のアプリケーションはLDAPルックアップを維持するのではなく、ゲートウェイを使用するように変更するべきです。PMOがない場合、IAMチームがプロジェクトに影響を与えることは難しい場合があります。
+
+PMOは、アイデンティティに関する問題についてプロジェクトマネージャーを教育し、組織内のITプロジェクトにIAM要件を追加する機会を提供します。プロジェクトマネージャーは、PMOのフレームワークを使用して次のことをおこないます：
+
+1.  プロジェクトゲートを通じてプロジェクトを管理します；
+    
+2.  プロジェクトの進捗を組織の経営陣に伝えます；
+    
+3.  プロジェクトのゴールが承認された予算とスケジュールの中で達成されたことを組織内で承認します。
     
 
 @row
@@ -177,10 +326,20 @@ A PMO provides the opportunity to educate project managers on identity issues an
 
 It’s often said that a good project manager can keep a project on track regardless of the topic. While this may be true, if a project manager for an IAM project is not competent in the subject, they will be disadvantaged. It is recommended that they engage a project lead who is familiar with the components of an IAM environment and understands the competency of the skills-base within the organization. If an organization cannot complete a project with in-house resources, the project manager will need to engage contractors to work on the project.
 
+@column
+## IAMプロジェクト
+
+優秀なプロジェクトマネージャーは、トピックにかかわらずプロジェクトを軌道に乗せられるとよく言われています。これは真実かもしれませんが、IAMプロジェクトのプロジェクトマネジャーはその主題に精通していない場合、不利になります。IAM環境のコンポーネントに精通し、組織内のスキルベースの能力を理解しているプロジェクトリーダーを採用することを推奨します。組織が社内のリソースでプロジェクトを完了できない場合、プロジェクトマネージャーはプロジェクトに取り組む契約業者を雇用する必要があります。
+
 @row
 ### Example Project
 
 Let’s assume the project is commenced to replace the existing IAM processes used to onboard new staff members or contractors with a new system purchased from an IAM solution vendor. The sections below work through the different project management stages for such a project.
+
+@column
+### プロジェクトの例
+
+例えば、新しいスタッフや契約業者がオンボードする際に使用する既存のIAMプロセスを、IAMソリューションベンダーから購入した新しいシステムに置き換えるプロジェクトが開始されたと仮定しましょう。以下のセクションでは、このようなプロジェクトのさまざまなプロジェクト管理の段階を説明します。
 
 @row
 ### Planning
@@ -206,6 +365,30 @@ In scope will be the applications that will rely on the IAM system. The PM must 
 
 The computer applications that provide operational functionality to users should also use the organization’s SSO solution. In the real world, such applications might include a production machine, a process control system, an asset control system, a learning management system, a health monitoring facility, a vehicle registration application, and so on. Any computer system that must be protected via an access control mechanism that ensures users only get access to the facilities to which they are entitled should be integrated into the organization’s SSO solution. The project manager for an IAM project must ensure the requirements for these applications are canvassed at the commencement of the project.
 
+@column
+### 計画
+
+IAMプロジェクトで最も重要なのは、プロジェクトのスコープを定義することです。IAM環境は、組織内の多くの運用コンポーネントやプロセスに関わります；PMの役割は、すべての利害関係者にプロジェクトの全範囲を明確に伝える必要があります。IAMプロジェクトの範囲を適切に決定するために、PMはIAMソリューションの性質と、組織内の他のシステムへの影響を理解する必要があります。[付録](#addendum-questions-for-an-iam-project-manager-to-ask)では、IAMプロジェクトの計画段階でおこなうべき質問をいくつか示しています。
+
+PMは、プロジェクトのスコープが明確にする責任があります。あまりにも多くのIAMプロジェクトが、プロジェクトのスコープに関して誤解を抱えたまま進行しています。例えば、IAMプロジェクトのリーダーは、プロジェクトがプロビジョニングモジュールを実装することだと思っているかもしれませんが、アプリケーションオーナーはより優れた認証機能を提供することが目標だと思っているかもしれません。一方、監査役はガバナンスの強化を望んでいるかもしれない。スコープについて共通の合意を得ることで、すべての利害関係者がプロジェクトのスコープに集中できます。
+
+このような性質のプロジェクトのスコープには以下の項目が含まれることが多いです：
+
+*   IAMツールの設定とデプロイ
+    
+*   Eメールシステムとの統合
+    
+*   エンタープライズリソースプランニング（ERP）機能（つまり、組織の運用をサポートするコンピュータシステム）を提供するシステムとの統合
+    
+
+しかし、HRシステムと財務管理システムは、この例のプロジェクトのスコープ外です。HRシステムとの緊密な統合により、HTシステムとIAMシステムの両方が改善される可能性があります。HRシステムは制御範囲を拡大できる可能性があり、IAMシステムはスタッフの資格（トレーニング状況、プロジェクトメンバー、スタッフの雇用状況など）のより適切なプロビジョニングのためのHRシステムとの緊密な結合によってメリットが得られます。人事部はオンボードとオフボードの手順を変更することに消極的な場合が多いのです。プロジェクトが適切に管理されていることを示す証拠があれば、このような懸念は解消されるかもしれません。
+
+財務部にも、システムに影響を与えるものに賛成することを思いとどまらせる課題があります。一般的に彼らは財務管理システム内にきめ細かな認証機能を維持しており、しばしば外部エンティティの機能を信頼していません。IAMシステムへのアクセス制御を外部化することは一般的に安価でセキュリティが向上しますが、一方で財務部と連携するには独自の集中的な取り組みが必要になります。
+
+スコープにはIAMシステムに依存するアプリケーションが含まれます。PMは各システムのオーナーと連絡を取り、ユーザが各システムにアクセスするさいに必要なデータ属性を決定しなければなりません。例えば、Eメールシステムはデジタルアイデンティティを正しく構築するため、ユーザの氏名、ミドルネームの頭文字を知る必要があります。また、ユーザの部署やグループも把握する必要があるかもしれません。理想的には、Ｅメールシステムは企業のシングルサインオン（SSO）ソリューションに参加するべきであり、つまり、ユーザは組織で使用されるSSOソリューションの一部として認証されます。
+
+ユーザに運用機能を提供するコンピュータアプリケーションでも、組織のSSOソリューションを利用すべきです。現実世界でもそのようなアプリケーションには、生産機械、プロセス管理システム、資産管理システム、学習管理システム、健康管理施設、車両登録アプリケーション等が含まれるでしょう。ユーザが資格をもつ施設にのみアクセスできるようにするアクセス管理システムを介して保護しなければならないコンピュータシステムは組織のSSOソリューションに統合されるべきです。IAMプロジェクトのプロジェクトマネージャーは、プロジェクトの開始時にこれらのアプリケーションの要件を確認する必要があります。
+
 @row
 ### Organizing
 
@@ -222,6 +405,24 @@ The following activities are recommended for the successful ‘organizing’ of 
 *   Verify the support of a Quality Assurance (QA) program – responsible for the quality of project deliverables (such as the documents, milestones, or other deliverables). This program is particularly important to establish the accuracy (both in format and content) of the data files supporting the test plan. Identity data should be suitably anonymized for test purposes and must be restorable for regression testing.
     
 *   Create a risk register - The project team should compile a risk register that identifies the risks to the project’s ability to meet its schedule, cost, and quality constraints. Each risk should be assessed for probability and impact. An IAM project should not proceed with any risk evaluated as ‘high.’
+    
+
+@column
+### 組織化
+
+IAMプロジェクトの成功は、プロジェクトがいかによく管理されているかに依存します。この依存は、PMが組織内のヒエラルキーをどれだけうまく活用しているかに関係しています。しばしば、IAMプロジェクトの実行は社内のIAM部門の人々に任されています。IAM部門にはIAM環境を維持する運用上の役割があるため、良い方法ではありません；しかし、IAMプロジェクトはIAM部門の能力を拡張し、IAM環境の管理タスクからリソースを転用する期間限定の新しい取り組みです。IAMの経験をもつ担当者はデプロイプロジェクトに関与するべきですが、その担当者がIAM部門から配置換えされていた場合、担当者がIAMプロジェクトに従事する間に他の担当者で埋め合わせするべきです。
+
+以下のアクティビティは、IAMプロジェクトの成功した「組織化」のために推奨されます:
+
+*   運営委員会を設立する - これにはプロジェクトスポンサー、プロジェクトに直接影響を受けるIT部門、HR部門、財務部門、生産部門、販売営業部門および他のビジネス部門の適切な高レベルの担当者に含まれるべきです。運営委員会は定期的にプロジェクトの進捗状況をレビューし、PMによって提起された問題を解決します。
+
+*   適切な委員会のレビューを開催する - PMはすべてのゲーティング要素とプロジェクトの進行状況をレビューしなければならない委員会を認識しなければなりません。これらはPMOのゲーティング（フェーズ終了）ミーティング、監査コンプライアンスを確保するためのガバナンスレビュー、IAMシステムがサポートされているテクノロジープラットフォームに準拠していることを確認するエンタープライズアーキテクチャ運営委員会、プロジェクトの予算サポートを確保するための財務レビューが含まれます。
+    
+*   コミュニケーション登録簿を文書化する - PMがプロジェクトの進捗報告を誰に、どのような方法で送るかをリストアップします。これは、頻度（例えば、隔週）、メカニズム（例えば、電子メール、ウェブサイトまたは他の通知ツール）、およびメディア（例えば、Word文書、MSプロジェクトファイルなど）を含むべきです。
+    
+*   品質保証（QA）プログラムのサポートを検証する - プロジェクトの成果物（文書、マイルストーン、またはその他の成果物など）の品質に責任を負います。このプログラムは、テスト計画をサポートするデータファイルの正確さ（形式と内容の両方）を確立するために特に重要です。アイデンティティデータは、テスト目的のために適切に匿名化されるべきであり、回帰テストのために復元可能でなければなりません。
+    
+*   リスク登録簿の作成 - プロジェクトチームは、プロジェクトのスケジュール、コスト、品質の制約を満たす能力に対するリスクを特定するリスク登録簿をコンパイルするべきです。各リスクは、確率と影響を評価するべきです。IAMプロジェクトは、リスクが「高い」と評価された状態で進めるべきではありません。
     
 
 @row
@@ -248,15 +449,49 @@ A perennial problem for an IAM project is how to build IAM staff competence in a
 
 > This engagement is not ideal since, without the IAM team's active involvement, the IAM solution's successful integration into the organization’s operations will be difficult.
 
+@column
+### リソース管理
+
+プロジェクトマネジメントの格言に、「望ましいリソースは決して手に入らない」というのがあります。優秀なスタッフは非常に多忙であり、簡単にプロジェクトに出向くことはできません。IAMプロジェクトでは、企業のアイデンティティ管理システムやポリシーについて詳しい知識を持つ人材の参画が不可欠です。PMは、重要な人材の入手可能性を交渉し、それに応じてプロジェクトのスケジュールを修正する能力がなければなりません。
+
+前述のとおり、プロジェクトの予算は、プロジェクトに出向している人員の埋め戻しに対応する必要があります。リソースを「買い入れる」必要がある場合、通常、運営委員会が最終的なリソーシングプランを決定し、保守活動には請負業者を使用し、IAMデプロイプロジェクトには経験豊富なIAMスタッフを配置することを選択できます。IAMプロジェクトのPMは、通常、組織内の職務権限を持たないため、運営委員会を利用して適切なリソースを適切なタイミングでプロジェクトに割り当てなければなりません。
+
+IAMプロジェクトの永続的な問題は、獲得される新しいIAMツールでIAMスタッフの能力をどのように構築するかです。次のオプションがあります：
+
++   デプロイ活動に先行し、IAM部門から選抜したスタッフをトレーニングに向かわせます
+    
+
+> 経験のあるIAMスタッフであっても、ハンズオン経験なしに新しいパッケージで能力を開発することに期待することは非現実的です。
+
+*   IAMスタッフが監視しながらデプロイを実施するベンダーを雇用します。
+    
+
+> この雇用は、ベンダーに「機能させる」責任を負わせ、IAMスタッフへの技術移転を確実にするため、最も現実的なオプションです。
+
+*   IAM部門が運用状態への移行において受け入れテストを実行するターンキープロジェクトのためにベンダーを雇用します。
+    
+
+> この雇用は、IAMチームの積極的な関与がなければIAMソリューションを組織の運用にうまく統合することが困難であるため、理想的ではありません。
+
 @row
 ### Directing
 
 The Directing element of an IAM project will vary greatly depending on whether a classical or an Agile project management methodology is followed.
 
+@column
+### 方針指導
+
+IAMプロジェクトのディレクション要素は、古典的なプロジェクト管理方法論に従うか、アジャイルプロジェクト管理方法論に従うかによって大きく異なります。
+
 @row
 #### Classic
 
 The Gannt chart becomes the main tool for directing the project. The PM will ensure tasks are commenced on time and progress to plan by conducting a weekly or biweekly review of the schedule in periodic team meetings. Team members will report on the progress to plan for each task to which they are assigned. For tasks behind schedule or expecting to encounter problems, the PM will attempt to put a contingency in place. If a slip occurs, the PM must go back to the steering committee with a recommended strategy and seek approval or additional direction (for example, the direction to accept the slip and modify the Gantt chart or the direction to invest the resources necessary to restore the original schedule). If the steering committee approves the change, the project schedule can be re-baselined.
+
+@column
+#### 古典的
+
+ガントチャートは、プロジェクトを指揮するための主要なツールになります。PMは、毎週または隔週で行われる定期的なチームミーティングでスケジュールの見直しをおこない、タスクが予定通りに開始され、計画通りに進捗していることを確認します。チームメンバーは、自分が担当する各タスクの計画に対する進捗を報告します。スケジュールの遅れているタスクや問題の発生が予想されるタスクについては、PMはコンティンジェンシー（予備費）を設けるよう試みます。スリップが発生した場合、PMは推奨戦略を携えて運営委員会に戻り、承認または追加の指示（たとえば、スリップを受け入れてガントチャートを修正する指示や、元のスケジュールに戻すために必要なリソースを投入する指示）を求めなければなりません。もし運営委員会がその変更を承認すれば、プロジェクトスケジュールは再びベースライン化されます。
 
 @row
 #### Agile
@@ -264,6 +499,13 @@ The Gannt chart becomes the main tool for directing the project. The PM will ens
 The PM will establish regular ‘stand-up’ meetings, typically several times a week, at which each ‘sprint’ is reviewed and tasks moved on the Project Wall from ‘waiting’ to ‘current’ to ‘completed.’ Each scheduled task will be discussed, and any impediments to completing a ‘sprint’ will be noted by the PM and addressed with appropriate management. For instance, transition to production might occur during non-business hours requiring coordination with multiple business units. The PM must ensure agreement, and appropriate resourcing, from involved parties.
 
 The PM will raise unresolved issues with the appropriate managers.
+
+@column
+#### アジャイル
+
+PMは通常、週に数回、定期的な「スタンドアップ」ミーティングを設け、各「スプリント」をレビューし、プロジェクトウォール上のタスクを「未着手」から「着手」、「完了」へと移動させます。予定されている各タスクが議論され、「スプリント」の完了を阻害する要因があれば、PMが指摘し、適切な管理者とともに対処します。例えば、生産への移行が営業時間外におこなわれ、複数のビジネス部門との調整が必要になることがあります。PMは、関係者の同意と適切なリソースを確保しなければなりません。
+
+PMは未解決の問題を適切な管理者に報告します。
 
 @row
 ### Controlling
@@ -274,10 +516,21 @@ Control is a function of project management that provides feedback to the PM reg
 
 As an example, a project’s progress might be depicted as follows:
 
+@column
+### コントロール
+
+コントロールは、IAMプロジェクトで最もよく実行されないPMの機能と考えられます。
+
+コントロールとは、プロジェクトマネジメントの機能の一つで、プロジェクトがスケジュールと予算の制約を満たす可能性についてPMにフィードバックすることです。PMは通常、うまく計画し、コミュニケーションと品質保証を組織化し、十分なリソースを確保し、プロジェクトのタスクを適切に指示すれば、何も問題は起きないと考えるでしょう。しかし、IAMプロジェクトは、組織内の多くの機能に影響を与えるため、プロジェクトがオーバーランしたという話は枚挙にいとまがありません。この影響を管理することが、コントロールの出番です。測定できないものは管理できないため、計画に対する進捗を監視することが管理機能の中核になります。PMのツールキットで試行錯誤してきたものが、アーンドバリュー分析（EVA）です。EVAでは、予定作業の予算コスト（BCWS）、実行作業の予算コスト（BCWP）、実行作業の実績コスト（ACWP）を計算します。これらの計算により、費やした予算に対する完成度を比較し、支出超過や予算超過の問題が発生しているプロジェクトを迅速に特定することができます。
+
+例えば、あるプロジェクトの進捗を次のように表現することができる：
+
+@row
 ![A line graph showing a sample budget cost schedule. ](/assets/images/idpro_bok/PM-figure2.png)
 
 Figure - Sample Budget Cost Schedule
 
+@row
 The BCWS shows the project’s schedule. It’s a two-month project with a budget of $53,000 (Y axis in thousands of dollars). The current spend is $55,000 with two weeks to go. The budgeted cost of the work performed to date is $45,000. So the EVA clearly shows the project is behind on its deliverables and is currently $10,000 overspent on its budget.
 
 Another tool is calculating a project’s performance indices using quick ratios to gauge the probability of an on-time and in-budget project completion. Common indices are:
@@ -295,10 +548,33 @@ Another tool is calculating a project’s performance indices using quick ratios
 
 A third useful tool is the S curve, which tracks the resource burn rate to ensure the project expenditure reduces appropriately, particularly at the end of a project. In the example above, the Actual Cost curve is not adhering to the ‘S’ shown in the scheduled work curve. Management of the resource burn rate is important for IAM projects since additional tasks, such as system documentation, are often not properly accommodated in the project schedule at project inception. These should not be added to the scope of the project. Instead, they should be completed as part of standard operations (i.e., outside the project).
 
+@column
+BCWSは、プロジェクトのスケジュールを示します。これは、予算が53,000ドル（Y軸は千ドル）の2ヶ月のプロジェクトです。現在の支出は55,000ドルで、あと2週間あります。現在までに実行された作業の予算コストは​​45,000ドルです。したがって、EVAはプロジェクトが成果物に遅れをとっており、現在予算を10,000ドル超過していることを明確に示しています。
+
+別のツールは、予定どおりに予算内でプロジェクトが完了する確率を測定するため、迅速な比率を使用してプロジェクトのパフォーマンス指標を算出することです。一般的な指標は次のとおりです：
+
+*   コスト差異： CV = BCWP - ACWP
+    
+*   スケジュール差異： SV = BCWP - BCWS
+    
+*   コストパフォーマンス指標： CPI = BCWP/ACWP
+    
+*   スケジュールパフォーマンス指標： SPI = BCWP/BCWS
+    
+*   臨界比： CR = CPI \* SPI
+    
+
+3つ目の便利なツールはS字カーブであり、これはリソースの燃焼率を追跡し、特にプロジェクト終了時にプロジェクトの支出が適切に削減されるようにします。上記の例では、アクチュアルコストカーブは、スケジュールされた作業カーブに示されている「S」に沿っていません。IAMプロジェクトでは、リソースの燃焼率を管理することが重要であり、これはシステムドキュメントなどの追加タスクが、プロジェクト開始時のプロジェクトスケジュールに適切に組み込まれていないことが多いためです。これらはプロジェクトのスコープに追加しないでください。代わりに、標準的な操作の一部として（つまり、プロジェクト外で）完了する必要があります。
+
 @row
 ## Organizational Variances
 
 When managing an identity project, it is worth understanding the type of organization for which the project is being undertaken.
+
+@column
+## 組織的な差異
+
+アイデンティティプロジェクトを管理する場合、プロジェクトが実施される組織の種類を理解することに価値があります。
 
 @row
 ### Public Sector
@@ -309,12 +585,28 @@ The first obstacle resulted in a meeting at which the benefits of the solution w
 
 Part of the stakeholder analysis for public sector projects is to understand the motivation of the sponsor and other involved public servants; their motivation it’s not always to benefit the agency for which they work; it is sometimes to advance their career.
 
+@column
+### 公共部門
+
+政府部門向けのプロジェクトを管理する場合、組織構造によってそれが難しくなることが多くあります。複数の部門を有する規模の大きな政府機関に対してエンタープライズレベルのソリューションをデプロイするプロジェクトでは、2つの大きな難題がありました。まず、このプロジェクトへの参加に同意したのは、政府機関内の5つの部署だけでした；2つの大きな部署は参加を拒否されました。次に、この機関はすべてのITプロジェクトを内部の技術部門に任せていたため、エンドユーザーと直接関わることが困難でした。
+
+最初の難題は、このソリューションの利点を説明するミーティングにつながり、出席していた部署の人たちは、このプロジェクトがどのようにデプロイされるかを「見守る」ことに同意しました。デプロイに成功すると、このソリューションの導入を進めることに同意しました。2つ目の難題は、関係部署の有識者が参加する「ワークショップ」というタスクをスケジュールに入れることで克服しました。このワークショップは大成功で、参加者はこのプロジェクトに継続的に参加することを要望しました。
+
+公共部門のステークホルダー分析の一環として、スポンサーや関係する公務員のモチベーションを理解することがあります；彼らのモチベーションは、必ずしも所属する機関の利益のためとは限りません；キャリアアップのためである場合もあります。
+
 @row
 ### Private Sector
 
 There is a danger to commercial projects that the scope will be too narrow. Because projects in the private sector are typically cost-constrained, there will be a reluctance to engage widely to build a comprehensive list of stakeholders that will ensure wide benefit across the company. When identifying items that will extend the scope, the project manager will often be told to place them in ‘phase 2’.
 
 While this might make commercial sense, the project manager should ensure the Steering Committee understands the ramifications of not extending the project to include the requirements of a wider stakeholder cohort. It is far better to include requirements in the scope of the initial project than to be forced to extend the project once work has started. The scope must be determined before the schedule is developed and before the execution of the project commences. Adding new requirements during the execution phase will require the project to be re-baselined, which will involve more work and should be avoided.
+
+@column
+### 民間部門
+
+商用プロジェクトには、スコープが狭すぎるという危険があります。民間部門のプロジェクトは一般的にコスト制約があるため、会社全体に幅広い利益をもたらす包括的なステークホルダー一覧を作成するために大きく関与することには消極的です。スコープを拡張するアイテムを見極める場合、プロジェクトマネージャーは、それらを「フェーズ2」に配置するように指示されることがよくあります。
+
+これは商業的には理にかなっているかもしれませんが、プロジェクトマネージャーは、より多くのステークホルダーコホートの要件を含めるようにプロジェクトを拡張することを実施しない影響を運営委員会が理解していることを確認する必要があります。要件を最初のプロジェクトのスコープに含める方が、作業が開始された後にプロジェクトを拡張することを余儀なくされるよりもはるかに優れています。スコープは、スケジュールを作成する前、およびプロジェクトの実行を開始する前に決定する必要があります。実施段階で新しい要件を追加すると、プロジェクトのベースラインを再設定する必要がありますが、これにはより多くの作業が必要となるので避けるべきです。
 
 @row
 ### Academia
@@ -325,21 +617,35 @@ Then there’s the student cohort which consists of undergraduates, graduates, h
 
 When determining the scope, the project manager must agree on the user base to be accommodated. It is also noted that academics typically engage in a wide and diverse range of applications that might need to be accommodated by the IAM infrastructure.
 
+@column
+### 学術分野
+
+学術分野でのアイデンティティプロジェクトの管理は、非常に複雑になる場合があります。管理スタッフは2つの大きなコホートに分けられます：大学または学校の運営を維持する管理職員と、さまざまなアイデンティティ管理要件を持つ教員です。その機関が研究に関与している場合、リモートからドキュメントにアクセスするために、機関間のアイデンティティフェデレーションに参加するという追加の要件があります。
+
+次に、学部生、大学院生、高等学位を目指す研究生、およびおよび学生として登録されたスタッフで構成される学生コホートがあります。卒業生は、考慮する必要があるかもしれない追加のコホートを構成します。
+
+スコープを決定するさい、プロジェクトマネージャーは、対応するユーザーベースに同意する必要があります。また、学者は通常、IAMインフラストラクチャで対応する必要があるかもしれない幅広く多様なアプリケーションに従事していることにも注意してください。
+
 @row
 ## Conclusion
 
 Project management methodology should be applied to all IAM projects, even small ones. Project management ensures that a structured process is applied to the activity and that the impact of the activity on affected business units will be considered and, if necessary, included in the planning. Failure to manage an IAM activity as a project will raise the likelihood of mistakes being made and additional costs being incurred. [^3]
+
+@column
+## 結論
+
+プロジェクト管理の方法論は、たとえ小規模なものであっても、すべてのIAMプロジェクトに適用するべきです。プロジェクト管理は、構造化されたプロセスが活動に適用され、影響を受ける事業部門への活動の影響が考慮され、必要に応じて計画に盛り込まれることを保証します。IAMアクティビティをプロジェクトとして管理しないと、ミスが発生したり、追加のコストが発生したりする可能性が高くなります。 [^3]
 
 @row
 ## Author Bios
 
 Graham Williamson
 
-![Photo of Graham Williamson](/assets/images/idpro_bok/PM-author1.jpg) Graham Williamson is an IAM consultant working with commercial and government organizations for over 20 years with expertise in identity management and access control, enterprise architecture and service-oriented architecture, electronic commerce, and public key infrastructure, as well as ICT strategy development and project management. Graham has undertaken major projects for commercial organizations such as Cathay Pacific in Hong Kong and Sensis in Melbourne, academic institutions in Australia such as Monash University and Griffith University, and government agencies such as the Queensland Government CIO’s office and the Northern Territory Government in Australia and the Ministry of Home Affairs in Singapore.
+<!-- ![Photo of Graham Williamson](/assets/images/idpro_bok/PM-author1.jpg) --> Graham Williamson is an IAM consultant working with commercial and government organizations for over 20 years with expertise in identity management and access control, enterprise architecture and service-oriented architecture, electronic commerce, and public key infrastructure, as well as ICT strategy development and project management. Graham has undertaken major projects for commercial organizations such as Cathay Pacific in Hong Kong and Sensis in Melbourne, academic institutions in Australia such as Monash University and Griffith University, and government agencies such as the Queensland Government CIO’s office and the Northern Territory Government in Australia and the Ministry of Home Affairs in Singapore.
 
 Corey Scholefield
 
-![Photo of Corey Scholefield](/assets/images/idpro_bok/PM-author2.jpg) Corey is currently a Sr. Technical Product Manager with Workday, supporting operations engineering service delivery for Workday's cloud-ERP suite. Corey has a background in public-sector identity management, having spent over 15 years working in higher education, with positions at both University of Victoria and BCNET in British Columbia, Canada.
+<!-- ![Photo of Corey Scholefield](/assets/images/idpro_bok/PM-author2.jpg) --> Corey is currently a Sr. Technical Product Manager with Workday, supporting operations engineering service delivery for Workday's cloud-ERP suite. Corey has a background in public-sector identity management, having spent over 15 years working in higher education, with positions at both University of Victoria and BCNET in British Columbia, Canada.
 
 At BCNET, Corey led a federated-identity service bureau that supported regional adoption of eduroam and SAML capabilities under the umbrella of the Canadian Access Federation. At the University of Victoria, Corey's team established an identity-management program that supported campus-wide access-management needs. Corey has deployed many IDAM technologies, including OpenLDAP, CAS SSO, Sun IDM, Shibboleth IDP, and SailPoint IdentityIQ.
 
@@ -355,6 +661,9 @@ At BCNET, Corey led a federated-identity service bureau that supported regional 
 @row
 ## Addendum: Questions for an IAM Project Manager to ask
 
+@column
+## 付録：IAMプロジェクトマネージャーが尋ねるべき質問
+
 @row
 ### Identity Management
 
@@ -369,6 +678,22 @@ At BCNET, Corey led a federated-identity service bureau that supported regional 
 *   What repositories of identity information exist in the organization (e.g., LDAP directories, Databases, Active Directory), and what interfaces to the identity management environment are needed (e.g., SCIM import, REST API, Webservices Gateway; CSV import)?
     
 *   What is the business process for disabling an account and eventually deleting it?
+    
+
+@column
+### アイデンティティ管理
+
+*   新しいスタッフが組織に加わると、ユーザーアカウントはどのように作成されますか？社員と契約社員ではプロビジョニング方法が異なりますか？
+    
+*   ユーザー属性はどのように収集/決定されますか？
+    
+*   エンドユーザーに特定のアプリケーションへのアクセス権限を付与するためのビジネスプロセスはどのようなものですか？ユーザーによるセルフサービスはサポートされていますか？ユーザー権限の確立に必要な認可を得るための承認ワークフローはありますか？
+    
+*   特権アカウント（例：管理者権限を持つアカウント）には異なるプロセスがありますか？
+    
+*   組織にはどのようなアイデンティティ情報のリポジトリ（例：LDAPディレクトリ、データベース、Active Directory）が存在し、アイデンティティ管理環境にはどのようなインターフェイスが必要ですか（例：SCIMインポート、REST API、Webサービスゲートウェイ；CSVインポート）？
+    
+*   アカウントを無効にして最終的に削除するためのビジネスプロセスは何ですか？
     
 
 @row
@@ -389,6 +714,23 @@ At BCNET, Corey led a federated-identity service bureau that supported regional 
 *   How are application administrator rights managed (e.g., manually, via approval workflow)?
     
 
+@column
+### アクセス制御
+
+*   どのような認証メカニズムがサポートされていますか（例：ローカルアプリケーションデータベース、企業のLDAPディレクトリ、Active Directory、RADIUS）？
+    
+*   複数の保証レベル（例：機密リソースの保証の高度化）がサポートされていますか？
+    
+*   MFA（例：U2F、DUO、プッシュ認証）はサポートされていますか？
+    
+*   SSOはサポートされていますか？Webアプリのみですか、それとも他のアプリケーションもサポートされていますか？
+    
+*   SaaSアプリはどのようにサポートされていますか（例：アイデンティティデータの定期的な同期、SAML）？
+    
+*   アプリケーション内のユーザーエンタイトルメントはどのように管理されますか（例：アプリ内部、HTTPヘッダーメッセージで渡される属性、SAMLアサーション、Active Directoryグループメンバーシップ経由）？
+    
+*   アプリケーション管理者の権限はどのように管理されますか（例：手動、承認ワークフロー経由）？
+
 @row
 ### Governance
 
@@ -397,6 +739,15 @@ At BCNET, Corey led a federated-identity service bureau that supported regional 
 *   What governance interfaces are required to collect user account information from corporate applications (e.g., REST API, SCIM, Webservice gateway, service-bus messaging, CSV export)?
     
 
+@column
+### ガバナンス
+
+*   どのようなガバナンスプロセス（例：再認定/証明報告）が必要ですか？どのような監査プロセスがサポートされていますか？
+    
+*   企業アプリケーションからユーザー管理情報を収集するためにどのような監査インタフェースが必要ですか？（例：REST API、SCIM、Webサービスゲートウェイ、サービスバスメッセージング、CSVエクスポート）？
+    
+
+@row
 - - -
 
 [^1]:  Scrum Alliance, “Your Quick Guide to All Things Scrum,” accessed 29 June 2021, [https://www.scrumalliance.org/about-scrum/overview](https://www.scrumalliance.org/about-scrum/overview) . 
