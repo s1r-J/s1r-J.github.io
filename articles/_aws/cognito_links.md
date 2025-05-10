@@ -5,7 +5,7 @@ permalink: /docs/aws/amazoncognito_links
 date: 2024-02-19
 aside:
   toc: true
-tags: ["AWS", "Amazon Cognito", "Cognito", "認証", "認可"]
+tags: ["AWS", "Amazon Cognito", "認証", "認可"]
 ---
 
 - [CloudFront+S3による静的サイトにCognito認証を追加してみた \| DevelopersIO](https://dev.classmethod.jp/articles/cloudfront-s3-cognito-authentication/)

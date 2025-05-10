@@ -6,7 +6,7 @@ date: 2024-09-09
 modify_date: 2024-11-09
 aside:
   toc: true
-tags: ["IDPro", "IDPro BoK", "OAuth2.0", "OIDC", "OpenIDConnect"]
+tags: ["IDPro", "IDPro BoK", "OAuth 2.0", "OIDC", "OpenID Connect"]
 ---
 
 IDPro Body of Knowledgeの翻訳メモです。

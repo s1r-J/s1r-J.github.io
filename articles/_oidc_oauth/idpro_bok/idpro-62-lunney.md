@@ -6,7 +6,7 @@ date: 2024-09-09
 modify_date: 2024-11-13
 aside:
   toc: true
-tags: ["IDPro", "IDPro BoK", "フェデレーション", "SAML", "OpenID Connect", "企業内IAM", "シングルサインオン", "OAuth", "OAuth2.0"]
+tags: ["IDPro", "IDPro BoK", "フェデレーション", "SAML", "OpenID Connect", "企業内IAM", "シングルサインオン", "OAuth", "OAuth 2.0"]
 ---
 
 IDPro Body of Knowledgeの翻訳メモです。

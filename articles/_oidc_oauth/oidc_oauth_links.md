@@ -5,7 +5,7 @@ permalink: /docs/oidc_oauth/links
 date: 2021-08-30
 aside:
   toc: true
-tags: OAuth OAuth2.0 OpenIDConnect
+tags: ["OAuth", "OAuth 2.0", "OpenID Connect"]
 ---
 
 OAuth2.0とOpenID Connectについて勉強するときに読んだ、読んでいるリンクのまとめ。
