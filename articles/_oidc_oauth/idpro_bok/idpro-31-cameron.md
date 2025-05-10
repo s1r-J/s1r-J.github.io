@@ -6,7 +6,7 @@ date: 2024-09-09
 modify_date: 2024-09-27
 aside:
   toc: true
-tags: ["IDPro", "IDPro BoK", "アイデンティティ・ライフサイクル", "ユーザー・ジャーニー"]
+tags: ["IDPro", "IDPro BoK", "アイデンティティライフサイクル", "ユーザー・ジャーニー"]
 ---
 
 IDPro Body of Knowledgeの翻訳メモです。
@@ -105,13 +105,13 @@ Throughout its lifecycle, a digital identity enables digital transactions throug
     
 
 @column
-## アイデンティティ・ライフサイクル
+## アイデンティティライフサイクル
 
 ライフサイクル「作成」フェーズでは、デジタル・アイデンティティは記録システム内で一意の識別子として作成されます。これは、ビジネスプロセスの一部として作成されるか（従業員またはデバイス・アイデンティティ）またはユーザー・ジャーニーの一部として透過的に作成されます（顧客アイデンティティ）。
 
 そのライフサイクル全体を通じて、デジタル・アイデンティティは全ての割り当てられたアカウントとアカウントに割り当てられた資格を通じてデジタル取引を可能にします。本記事ではライフサイクルが連続体としてまとめられていますが、読者は次のことを想定する必要があります：
 
-*   デジタル・アイデンティティ・ライフサイクルはほとんどの組織で複数のテクニカルソリューションに分散されています。
+*   デジタル・アイデンティティライフサイクルはほとんどの組織で複数のテクニカルソリューションに分散されています。
     
 *   ライフサイクルの一部のステップ（例えば、認証や利用）は他のステップ（例えば、マージや削除）よりも頻繁に発生するでしょう。
     
@@ -126,7 +126,7 @@ Figure 1 depicts the workforce IAM phases in the process:
 @column
 ### 従業員アイデンティティ
 
-従業員アイデンティティ・ライフサイクルはJoiner、Mover、Leaverという3つの主要なビジネスプロセスによって対処されます。 **Joiner** プロセスは、エンタープライズ環境での識別とアクセスを可能にする資産 (アイデンティティ、アカウント、グループメンバーシップなど) の作成を容易にするすべてのライフサイクルのフェーズをカバーします。 **Mover** プロセスは、エンタープライズ環境に従事しているあいだ、アイデンティティのステータスを変更または更新でき、そしてアクセス許可と資格を検証するために必要な認証プロセスを考慮しています。 **Leaver** プロセスは、アイデンティティがエンタープライズ環境へのアクセス権を削除されたときに必ず発生する一連の手順をカバーしています。
+従業員アイデンティティライフサイクルはJoiner、Mover、Leaverという3つの主要なビジネスプロセスによって対処されます。 **Joiner** プロセスは、エンタープライズ環境での識別とアクセスを可能にする資産 (アイデンティティ、アカウント、グループメンバーシップなど) の作成を容易にするすべてのライフサイクルのフェーズをカバーします。 **Mover** プロセスは、エンタープライズ環境に従事しているあいだ、アイデンティティのステータスを変更または更新でき、そしてアクセス許可と資格を検証するために必要な認証プロセスを考慮しています。 **Leaver** プロセスは、アイデンティティがエンタープライズ環境へのアクセス権を削除されたときに必ず発生する一連の手順をカバーしています。
 
 図1は各プロセスにおける従業員IAMフェーズを示しています：
 
@@ -149,7 +149,7 @@ The following table describes the phases that support the workforce identity lif
 | Deprovision Access | Remove access to any or all corporate resources. The need to remove access could occur as a result of a Leaver process or a validation from an Access Certification. When a digital identity is not required anymore, it should be disabled in the system of record. This action implies not only disablement or deletion from a central directory but also downstream systems that maintain records associated with this digital identity as well as logging and auditing repositories. Only once the identifier used for this digital identity has been removed from all systems can a digital identity be considered genuinely deleted.<br><br>A detailed discussion on the importance of account disable or removal given current best practices can be found in Andrew Hindle’s article, “Impact of GDPR on Identity and Access Management.”[^3] |
 
 @column
-以下の表はフェーズとそれがサポートする従業員アイデンティティ・ライフサイクルを記載しています：
+以下の表はフェーズとそれがサポートする従業員アイデンティティライフサイクルを記載しています：
 
 |     |     |
 | --- | --- |
@@ -283,7 +283,7 @@ The complexity of the digital identity lifecycle frequently becomes apparent onl
 @column
 ## 結論
 
-デジタル・アイデンティティ・ライフサイクルの複雑さは、何年も経過してシステムに機能が追加されてから初めて明らかになることが頻繁にあります。したがって、より長期的な視野でライフサイクル要件に取り組み、ユーザー管理機能が拡張可能であることを保証することを推奨します。
+デジタル・アイデンティティライフサイクルの複雑さは、何年も経過してシステムに機能が追加されてから初めて明らかになることが頻繁にあります。したがって、より長期的な視野でライフサイクル要件に取り組み、ユーザー管理機能が拡張可能であることを保証することを推奨します。
 
 @row
 ## Acknowledgements
