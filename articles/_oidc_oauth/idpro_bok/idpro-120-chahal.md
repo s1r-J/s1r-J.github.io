@@ -1,6 +1,6 @@
 ---
 layout: columns
-title: Authentication Methods
+title: HIPAA Security Rule Updates & IAM Compliance Recommendations
 permalink: /docs/oidc_oauth/idpro_bok/120
 date: 2025-05-03
 aside:

@@ -1,6 +1,6 @@
 ---
 layout: columns
-title: Authentication Methods
+title: "PKCE: Proof Key for Code Exchange"
 permalink: /docs/oidc_oauth/idpro_bok/123
 date: 2025-05-03
 aside:
