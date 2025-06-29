@@ -5,7 +5,7 @@ permalink: /docs/nodejs/randomstring
 date: 2021-03-09
 aside:
   toc: true
-tags: nodejs
+tags:Node.js
 ---
 
 使ってみたソースコードは[GitHub](https://github.com/s1r-J/nodejs-module-labo/tree/main/randomstring)にあります。
