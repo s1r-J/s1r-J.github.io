@@ -5,7 +5,7 @@ permalink: /docs/nodejs/querystring
 date: 2021-03-10
 aside:
   toc: true
-tags:Node.js
+tags: Node.js
 ---
 
 使ってみたソースコードは[GitHub](https://github.com/s1r-J/nodejs-module-labo/tree/main/querystring)にあります。

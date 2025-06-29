@@ -5,7 +5,7 @@ permalink: /docs/nodejs/consolidate
 date: 2021-04-05
 aside:
   toc: true
-tags:Node.js
+tags: Node.js
 ---
 
 ## Consolidate.js
